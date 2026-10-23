@@ -24,6 +24,9 @@ the drawing in that spot automatically:
   liocichla.jpg  A real photo of the Bugun Liocichla, only if you took it
                  or have permission. Replaces the drawing.
 
+  fibre-*.jpg    The nettle-fibre section (plates from the Revival of Memory
+                 field record). Replace any of them with the same name.
+
   gallery-1.jpg, gallery-2.jpg, gallery-3.jpg ...
                  Any number of extra photos. They appear in a "Photos"
                  section in order. Don't skip a number.

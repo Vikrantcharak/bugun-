@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bugun Homestay — Bichom, West Kameng, Arunachal Pradesh</title>
-<meta name="description" content="A homestay in Bichom, a Bugun village in West Kameng, Arunachal Pradesh. The old wooden bridge, the river, fishing with net and rod, the hike to Lichini, bamboo, home food, and day trips up to the forest of the Bugun Liocichla.">
+<meta name="description" content="A homestay in Bichom, a Bugun village in West Kameng, Arunachal Pradesh. The wooden suspension bridge, the river, fishing with net and rod, the hike to Lichini, bamboo, nettle fibre, home food, and day trips up to the forest of the Bugun Liocichla.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bugun Homestay — Bichom, Arunachal Pradesh">
 <meta property="og:description" content="Stay in a Bugun village by the river. The wooden bridge, fishing, the Lichini hike, and the bird that lives only on Bugun land.">
@@ -84,7 +84,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
 .nav__in{display:flex;align-items:center;gap:1.8rem;height:70px}
 .mark{display:flex;align-items:center;gap:.6rem;margin-right:auto;color:#fff;text-decoration:none;font:500 1.3rem/1 var(--disp);letter-spacing:-.01em}
 .mark svg{width:30px;height:30px;color:var(--gold);flex:none}
-.nav__links{display:flex;gap:1.6rem;font-size:.86rem;font-weight:600}
+.nav__links{display:flex;gap:1.35rem;font-size:.84rem;font-weight:600}
 .nav__links a{position:relative;padding:.3rem 0;text-decoration:none;color:rgba(255,255,255,.82);transition:color .25s}
 .nav__links a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .nav__links a:hover,.nav__links a.on{color:#fff}
@@ -97,7 +97,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
 @keyframes drop{from{opacity:0;transform:translateY(-8px)}}
 .mnav a{display:block;padding:.95rem 0;border-bottom:1px solid rgba(233,239,231,.1);text-decoration:none;font:400 1.3rem var(--disp);color:var(--on-dark)}
 .mnav a.btn{margin-top:1.2rem;width:100%;font:700 .95rem var(--body);color:var(--night);border-bottom:0}
-@media(max-width:1080px){.nav__links{display:none}.burger{display:inline-flex}}
+@media(max-width:1180px){.nav__links{display:none}.burger{display:inline-flex}}
 @media(max-width:520px){.nav .btn--gold{display:none}}
 
 /* ══ hero ══ */
@@ -197,6 +197,28 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
 .card--wide .card__tag{color:var(--gold)}
 @media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}.card,.card--big{grid-column:span 1}.card--big{grid-column:1/-1}}
 @media(max-width:620px){.grid{grid-template-columns:1fr}.card,.card--big{grid-column:auto}.card--wide{flex-direction:column}.card--wide .ph{flex-basis:auto}}
+
+/* ══ nettle fibre: the report's own cream, so its plates sit flush ══ */
+.fibre{background:#F7F5E9}
+.fibre__leaves{margin:0}
+.fibre__leaves img,.fibre__thread img{display:block;width:100%;height:auto}
+.fibre figcaption{margin-top:.5rem;font-size:.84rem;color:var(--ink-3)}
+.plants{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;margin:1.4rem 0 clamp(2.4rem,5vw,3.6rem);background:#E3DFCC;border:1px solid #E3DFCC;border-radius:var(--r);overflow:hidden}
+.plants div{background:#FBFAF3;padding:1rem 1.05rem}
+.plants b{display:block;font:500 1.12rem var(--disp);color:var(--red);margin-bottom:.3rem}
+.plants span{font-size:.84rem;line-height:1.5;color:var(--ink-2)}
+@media(max-width:1000px){.plants{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.plants{grid-template-columns:1fr 1fr}}
+.process{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.6rem);counter-reset:st}
+.process li{counter-increment:st;display:flex;flex-direction:column}
+.process img{width:100%;aspect-ratio:16/10;object-fit:contain;background:#F7F5E9;border-radius:12px;margin-bottom:.8rem}
+.process b{font:500 1.2rem var(--disp);margin-bottom:.25rem}
+.process b::before{content:counter(st,decimal-leading-zero);font:700 .72rem var(--body);letter-spacing:.1em;color:var(--red);margin-right:.6rem;vertical-align:.18em}
+.process span{font-size:.92rem;color:var(--ink-2)}
+@media(max-width:860px){.process{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.process{grid-template-columns:1fr}}
+.fibre__thread{margin:clamp(1.8rem,3.5vw,2.6rem) 0 0}
+.fibre__thread img{border-radius:var(--r)}
 
 /* ══ sun ══ */
 .sun{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(1.5rem,4vw,4rem);align-items:center}
@@ -400,6 +422,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
     <div class="nav__links">
       <a href="#stay">The homestay</a>
       <a href="#days">Things to do</a>
+      <a href="#fibre">Nettle fibre</a>
       <a href="#birds">Birds</a>
       <a href="#history">History</a>
       <a href="#here">Getting here</a>
@@ -414,6 +437,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
 <div class="mnav" id="mnav">
   <a href="#stay">The homestay</a>
   <a href="#days">Things to do</a>
+  <a href="#fibre">Nettle fibre</a>
   <a href="#birds">Birds</a>
   <a href="#when">When to come</a>
   <a href="#history">History</a>
@@ -497,7 +521,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
   <div class="hero__in wrap">
     <p class="hero__place"><span data-set="village">Bichom</span><span>Singchung circle</span><span>West Kameng</span><span>Arunachal Pradesh</span></p>
     <h1>Stay in a Bugun village <em>by the river.</em></h1>
-    <p class="lede">Cross the old wooden bridge, fish with a net or a rod, walk up to Lichini, watch the sun come up over the hills — and go looking for a bird that lives only on Bugun land.</p>
+    <p class="lede">Cross the old wooden bridge, fish with a net or a rod, walk up to Lichini, watch nettle bark become thread — and go looking for a bird that lives only on Bugun land.</p>
     <div class="hero__cta">
       <a class="btn btn--gold" href="#book">Ask about dates</a>
       <button class="btn btn--ghost" type="button" data-video="tour" hidden><svg aria-hidden="true"><use href="#play"/></svg>Watch the video</button>
@@ -509,10 +533,10 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
 <!-- ══════════ FACTS ══════════ -->
 <div class="facts">
   <div class="wrap facts__in">
-    <div class="fact"><b>~800 m</b><span>Up in the hills, by the river</span></div>
+    <div class="fact"><b>~810 m</b><span>Up in the hills, on the Bichom river</span></div>
     <div class="fact"><b>1</b><span>Bird found only on Bugun land</span></div>
     <div class="fact"><b>17 km²</b><span>Bugun community reserve</span></div>
-    <div class="fact"><b>Mar–May</b><span>Best months for birds</span></div>
+    <div class="fact"><b>6</b><span>Fibre plants named in Bichom</span></div>
   </div>
 </div>
 
@@ -522,8 +546,8 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
     <div class="rv">
       <p class="eyebrow">The homestay</p>
       <h2>Welcome to <span data-set="name">Bugun Homestay</span></h2>
-      <p class="lede" style="margin-top:1.3rem">A homestay in <span data-set="village">Bichom</span>, a Bugun village in the hills of West Kameng, about 800 metres up and beside the river.</p>
-      <p style="color:var(--ink-2)">Rooms are simple and the food is what the village eats. The days are yours: the river and the bridge, the path up to Lichini, the bamboo, and the forest of the birds higher up the hill.</p>
+      <p class="lede" style="margin-top:1.3rem">A homestay in <span data-set="village">Bichom</span>, a Bugun village in the hills of West Kameng, about 810 metres up on the Bichom river.</p>
+      <p style="color:var(--ink-2)">Rooms are simple and the food is what the village eats. The days are yours: the river and the bridge, the path up to Lichini, the bamboo and the nettle fibre, and the forest of the birds higher up the hill.</p>
       <table class="spec">
         <tr><th>Rooms</th><td data-set="homestay.rooms">Ask us</td></tr>
         <tr><th>Sleeps</th><td data-set="homestay.sleeps">Ask us</td></tr>
@@ -558,7 +582,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
         <div class="card__body">
           <span class="card__tag">The bridge</span>
           <h3>Cross the old wooden bridge</h3>
-          <p>Planks, rope and the river running underneath. It's the way across, and the place everyone stops for a photograph. Ask us its story.</p>
+          <p>A suspension footbridge of cable, logs and planks, with the river running fast underneath. It's the way across, and the place everyone stops for a photograph. Ask us its story.</p>
           <p class="mine" data-set="stories.bridge" hidden></p>
           <div class="card__foot"><button class="watch" type="button" data-video="bridge" hidden><svg aria-hidden="true"><use href="#play"/></svg>Watch</button></div>
         </div>
@@ -569,7 +593,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
         <div class="card__body">
           <span class="card__tag">The river</span>
           <h3>A morning by the river</h3>
-          <p>The Bichom river runs past the village to meet the Kameng. Bugun oral history remembers a hunter, the Bishum Shapa, who came from where the two rivers meet.</p>
+          <p>The Bichom has two Bugun names: Diga Khow, the male, and Khatong Khow, the female. <i>Khow</i> is water. It runs past the village to meet the Kameng, where oral history places the hunter Bishum Shapa.</p>
           <p class="mine" data-set="stories.river" hidden></p>
           <div class="card__foot"><button class="watch" type="button" data-video="river" hidden><svg aria-hidden="true"><use href="#play"/></svg>Watch</button></div>
         </div>
@@ -580,7 +604,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
         <div class="card__body">
           <span class="card__tag">Fishing</span>
           <h3>Fish with a net, or with a rod</h3>
-          <p>Come out with us and try both: casting a net, and a rod from the bank. You'll need a fishing permit from the district fisheries office, so tell us when you book. Golden mahseer always go back in.</p>
+          <p>Come out with us and try both: casting a net, and a rod from the bank. Nets here were once made from Shaung, a nettle-like plant from the hill. You'll need a permit from the district fisheries office, so tell us when you book. Golden mahseer always go back in.</p>
           <p class="mine" data-set="stories.fishing" hidden></p>
           <div class="card__foot"><button class="watch" type="button" data-video="fishing" hidden><svg aria-hidden="true"><use href="#play"/></svg>Watch</button></div>
         </div>
@@ -591,7 +615,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
         <div class="card__body">
           <span class="card__tag">The hike</span>
           <h3>Walk up to Lichini</h3>
-          <p>Lichini is one of the older Bugun villages. When Bichom was settled, families came down from Lichini, Ramu, Chitu and Sachida. The walk takes you up to where many of them came from.</p>
+          <p>Lichini is one of the older Bugun villages, and families came down from it to settle Bichom. From the road end above the village it is about 6.5 km on foot, climbing some 800 m to Lichini at around 1,680 m. A recorded walk took three and a half hours, with stops. On the way you pass three wild fibre plants, one after another as the ground rises.</p>
           <p class="mine" data-set="stories.lichini" hidden></p>
           <div class="card__foot"><button class="watch" type="button" data-video="lichini" hidden><svg aria-hidden="true"><use href="#play"/></svg>Watch</button></div>
         </div>
@@ -602,7 +626,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
         <div class="card__body">
           <span class="card__tag">Bamboo</span>
           <h3>Bamboo, everywhere you look</h3>
-          <p>Carrying baskets, fish carriers, rice cleaners, strainers, bags, the stand over the fire: in a Bugun house much of daily life is woven from bamboo, and craftsmen in the village still make them.</p>
+          <p>Carrying baskets, fish carriers, rice cleaners, strainers, bags: in a Bugun house much of daily life is woven from bamboo. Two bamboo craftsmen work at the top of the village road, and even the spindle for nettle thread is a bamboo shaft with a hook cut into it.</p>
           <p class="mine" data-set="stories.bamboo" hidden></p>
           <div class="card__foot"><button class="watch" type="button" data-video="bamboo" hidden><svg aria-hidden="true"><use href="#play"/></svg>Watch</button></div>
         </div>
@@ -613,7 +637,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
         <div class="card__body">
           <span class="card__tag">Food</span>
           <h3>Eat what the village eats</h3>
-          <p>Pork is the centre of a Bugun feast, and meat is smoked on the rack above the hearth. Home cooking, not restaurant food. Tell us before you come if there's anything you can't eat.</p>
+          <p>Pork is the centre of a Bugun feast, and meat is smoked on the rack above the hearth. Some food is still cooked the old way: packed into green bamboo and stood in the fire. Tell us before you come if there's anything you can't eat.</p>
           <p class="mine" data-set="stories.food" hidden></p>
           <div class="card__foot"><button class="watch" type="button" data-video="food" hidden><svg aria-hidden="true"><use href="#play"/></svg>Watch</button></div>
         </div>
@@ -646,10 +670,51 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
         <div class="card__body">
           <span class="card__tag">Birds</span>
           <h3>Go looking for the Bugun Liocichla</h3>
-          <p>A bird first described in 2006 and found nowhere but on Bugun land, in the forest up the hill near Singchung. A day trip from the village.</p>
+          <p>Found in 1995, described in 2006, and living nowhere but on Bugun land, in the forest up the hill near Singchung. A day trip from the village.</p>
           <div class="card__foot"><a class="btn btn--gold" href="#birds" style="padding:.75rem 1.2rem;font-size:.85rem">About the birds</a></div>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ NETTLE FIBRE ══════════ -->
+<section class="sec fibre" id="fibre">
+  <div class="wrap">
+    <div class="sec__head rv">
+      <p class="eyebrow">Nettle fibre</p>
+      <h2>From the plant on the hill <em>to the thread</em></h2>
+      <p>The Bugun once made thread from the bark of nettles and their relatives. The cloth stopped generations ago, when ready-made thread came up the hill from Assam. In Bichom two men have relearned the whole process from memory, and in 2026 it was recorded from the standing plant to the finished thread.</p>
+    </div>
+
+    <figure class="fibre__leaves rv">
+      <img src="photos/fibre-leaves.jpg" alt="Leaves of the six fibre plants, side by side" loading="lazy" width="2000" height="533">
+      <figcaption>Six plants, six names, given in Bichom.</figcaption>
+    </figure>
+    <div class="plants rv">
+      <div><b>Hanchaw</b><span>Himalayan giant nettle. It stings, and spins a pale cream thread.</span></div>
+      <div><b>Shaung</b><span>A false-nettle that doesn't sting. Bowstrings and fishing nets were made of it. Spins brown.</span></div>
+      <div><b>Shaungmauh</b><span>Ramie, planted beside the house rather than gathered.</span></div>
+      <div><b>Shaung Bamung</b><span>The smallest of the Shaung group, also used for nets.</span></div>
+      <div><b>Mikhilee</b><span>An elm, newly tried. The whitest fibre of them all.</span></div>
+      <div><b>Mikhisheat</b><span>The second new one, found growing beside Mikhilee.</span></div>
+    </div>
+
+    <ol class="process">
+      <li class="rv"><img src="photos/fibre-plant.jpg" alt="A stem of Shaung held in the hand" loading="lazy"><b>Cut and peel</b><span>June to August, green stems only. Peeled and boiled the same day, or the bark goes hard.</span></li>
+      <li class="rv"><img src="photos/fibre-boil.jpg" alt="Oak ash sieved into the pan" loading="lazy"><b>Boil with oak ash</b><span>An iron pan, sieved oak ash, seven to eight hours over a steady fire.</span></li>
+      <li class="rv"><img src="photos/fibre-dry.jpg" alt="Cleaned fibre, dried" loading="lazy"><b>Beat, rinse, dry</b><span>Struck on a rock at the river and rinsed until it washes white, then hung in the sun.</span></li>
+      <li class="rv"><img src="photos/fibre-clay.jpg" alt="Clay from the face, and after the sieve" loading="lazy"><b>Clay</b><span>A soft pale clay, dug and sieved, is worked in. Five or six days drying, then it is beaten out.</span></li>
+      <li class="rv"><img src="photos/fibre-card.jpg" alt="Carded fibre, opened in the hand" loading="lazy"><b>Card</b><span>Drawn between two toothed cards until the fibre opens.</span></li>
+      <li class="rv"><img src="photos/fibre-spin.jpg" alt="The Chhauk, a bamboo spindle, with thread" loading="lazy"><b>Spin</b><span>On the Chhauk, a bamboo spindle with a hard seed for a whorl.</span></li>
+    </ol>
+    <figure class="fibre__thread rv">
+      <img src="photos/fibre-thread.jpg" alt="Two threads: brown Shaung and cream Hanchaw" loading="lazy" width="1600" height="533">
+      <figcaption>The thread: Shaung spins brown, Hanchaw pale cream. Nobody has woven it yet.</figcaption>
+    </figure>
+    <div class="two" style="margin-top:clamp(1.8rem,3.5vw,2.6rem)">
+      <p class="rv" style="color:var(--ink-2)">If the fibre is being worked while you're here, ask whether you can watch. The knowledge belongs to the people of Bichom and Lichini who shared it, and where the wild plants grow is not shared.</p>
+      <p class="rv sources" style="margin:0">From <i>Revival of Memory</i>, a field record of Bugun fibre work at Bichom, September–October 2026. Plates and photographs by the field author.</p>
     </div>
   </div>
 </section>
@@ -707,9 +772,9 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
     <div class="rv">
       <p class="eyebrow">Birds</p>
       <h2>A bird that lives <em>only on Bugun land</em></h2>
-      <p class="lede" style="margin-top:1.3rem">In 2006 Ramana Athreya described a new species from the forest above Singchung and named it for the people whose land it lives on: the Bugun Liocichla.</p>
+      <p class="lede" style="margin-top:1.3rem">In 1995 a bird was found in the forest above Singchung that lives nowhere else on earth. In 2006 Ramana Athreya described it and named it for the people whose land it lives on: the Bugun Liocichla.</p>
       <p>It is critically endangered. By one count only 14 to 20 birds hold a few square kilometres of temperate forest, between about 1,850 and 2,450 metres, within the traditional lands of Singchung village. In 2017 the Bugun protected 17 km² of that forest as the Singchung Bugun Village Community Reserve, the first community reserve in Arunachal Pradesh.</p>
-      <p><span data-set="village">Bichom</span> is at about 800 m, well below the liocichla's forest. Seeing it means a day trip up to Lama Camp and the reserve, around 2,300 m. April and May, when pairs are singing, give the best chance. Ask us when you book.</p>
+      <p><span data-set="village">Bichom</span> is at about 810 m, well below the liocichla's forest. Seeing it means a day trip up to Lama Camp and the reserve, around 2,300 m. April and May, when pairs are singing, give the best chance. Ask us when you book.</p>
 
       <h3>Also in these forests</h3>
       <ul class="chips">
@@ -723,7 +788,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
         <li><span><b>Lama Camp</b><span>Community-run camp at the liocichla's core site</span></span><em>~2,330 m</em></li>
         <li><span><b>Singchung Bugun Village Community Reserve</b><span>17 km², protected by the Bugun since 2017</span></span><em>1,850–2,450 m</em></li>
         <li><span><b>Bompu Camp</b><span>Inside Eaglenest Wildlife Sanctuary</span></span><em>~1,950 m</em></li>
-        <li><span><b>Eaglenest Pass</b><span>The high point of the Eaglenest road</span></span><em>~2,800 m</em></li>
+        <li><span><b>Eaglenest Pass</b><span>The high point of the Eaglenest road</span></span><em></em></li>
       </ul>
     </div>
   </div>
@@ -744,6 +809,8 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
         <i class="c good"></i><i class="c good"></i><i class="c best"></i><i class="c best"></i><i class="c best"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c some"></i><i class="c good"></i><i class="c good"></i>
         <span class="lbl">Fishing</span>
         <i class="c good"></i><i class="c good"></i><i class="c good"></i><i class="c best"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c good"></i><i class="c good"></i><i class="c good"></i>
+        <span class="lbl">Nettle bark</span>
+        <i class="c"></i><i class="c"></i><i class="c"></i><i class="c some"></i><i class="c"></i><i class="c best"></i><i class="c best"></i><i class="c best"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i>
         <span class="lbl">Monsoon</span>
         <i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c wet"></i><i class="c wet"></i><i class="c wet"></i><i class="c wet"></i><i class="c"></i><i class="c"></i><i class="c"></i>
       </div>
@@ -766,21 +833,24 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
     </div>
     <div class="hist">
       <div class="prose rv">
-        <p class="lede">The Bugun are one of the smallest communities in Arunachal Pradesh, with their own language and several clans that trace their descent to a single forefather, Achinphumphulua.</p>
-        <p>The Bugun language belongs to a small group, and some linguists think it may be related to no other language at all. Villages were traditionally governed by a council headed by the <strong>Thap-Bahow</strong>. Belief is traditionally animist, with Buddhist influence from the neighbouring Sherdukpen. <strong>Pham Kho Sowai</strong> is celebrated at harvest.</p>
+        <p class="lede">The Bugun are a small community: a village-by-village count in 2022 put them at 2,075 people in twelve villages, all in the Singchung sub-division. Bichom, with 377, is the second largest.</p>
+        <p>Their language belongs to the small Kho-Bwa group, spoken only in this corner of the eastern Himalaya, and has no script: what is remembered is remembered by being said. The group's name was made from these languages' words for fire and water, and in Bichom <strong>khow</strong> is still water, in the river's two names, and in <strong>Pham Kho</strong>, where <i>pham</i> is the mountain.</p>
+        <p>The clans at Bichom, Lichini, Ramu and Chitu are Lali, Bachung and Hagam, and trace their descent to a single forefather, Achinphumphulua. Farming is the base of the year, with fishing beside it, and the harvest festival, <strong>Pham Kho Sowai</strong>, falls on 10 September. The older belief is animist; Mahayana Buddhism reached these valleys from the Sherdukpen in the early twentieth century.</p>
         <p><strong><span data-set="village">Bichom</span> itself is young</strong>: a model village settled by families from Lichini, Ramu, Chitu and Sachida. Older than the village is the story of the Bishum Shapa, the hunter who came from where the Bichom meets the Kameng.</p>
-        <p>In the last thirty years the Bugun have become known well beyond these hills for protecting their forest.</p>
       </div>
       <ol class="tl rv">
+        <li><b>1950</b><p>The Bugun are recognised as a Scheduled Tribe, among the earliest communities in India to be.</p></li>
+        <li><b>1995</b><p>A small, bright bird is found in the forest above Singchung.</p></li>
         <li><b>1997</b><p>The Dalai Lama visits Singchung and encourages people to give up hunting.</p></li>
-        <li><b>2006</b><p>Lama Camp opens on 10 April. In September the Bugun Liocichla is described, named for the Bugun.</p></li>
+        <li><b>2006</b><p>Lama Camp opens on 10 April. In September the bird is described and named the Bugun Liocichla.</p></li>
         <li><b>2007</b><p>Singchung villagers give up hunting and animal sacrifice.</p></li>
         <li><b>2017</b><p>Arunachal Pradesh declares the 17 km² Singchung Bugun Village Community Reserve.</p></li>
         <li><b>2018</b><p>The reserve's committee wins the India Biodiversity Award.</p></li>
         <li><b>2024</b><p>The reserve features on Arunachal Pradesh's Republic Day tableau.</p></li>
+        <li><b>2026</b><p>In Bichom, nettle thread-making is recorded end to end, from the plant on the hillside to the thread on the spindle.</p></li>
       </ol>
     </div>
-    <p class="sources">Sources: R. Athreya, <i>Indian Birds</i> (2006); Mongabay and The Wire (2018); Down To Earth; T. Bodt on Bugun oral history; Census of India 2011. Village history from Bichom families.</p>
+    <p class="sources">Sources: <i>Revival of Memory</i>, Bugun fibre field record, Bichom (2026), with village figures from a 2022 count; R. Athreya, <i>Indian Birds</i> (2006); Mongabay and The Wire (2018); Down To Earth; G. van Driem (2001) on Kho-Bwa; T. Bodt on Bugun oral history.</p>
   </div>
 </section>
 
@@ -805,7 +875,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
         <ol class="route">
           <li><span><b>Fly to Tezpur</b> in Assam, or to Guwahati, which has more flights. The nearest railway station is <b>Bhalukpong</b>.</span></li>
           <li><span><b>Drive up through Bhalukpong and Tenga</b>, on the road into West Kameng.</span></li>
-          <li><span><b>On to <span data-set="village">Bichom</span></b>. We send you exact directions when you book.</span></li>
+          <li><span><b>On to <span data-set="village">Bichom</span></b>, past Singchung and the Tenga market, which lie about 13 and 17 km to the south-west as the crow flies. We send exact directions when you book.</span></li>
         </ol>
         <p class="mine" data-set="driveTime" hidden></p>
       </div>
@@ -886,6 +956,10 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px soli
       <details>
         <summary>Can we go fishing?</summary>
         <p>Yes, with a net or a rod, but you'll need a permit from the district fisheries office, and it isn't usually issued in the monsoon. Golden mahseer are always released. Tell us when you book so we can plan for it.</p>
+      </details>
+      <details>
+        <summary>Can we see the nettle fibre being made?</summary>
+        <p>Sometimes. The bark is gathered from June to August and the work is done by hand, a stage at a time, when there is time for it. If it's being worked while you're here, ask whether you can watch.</p>
       </details>
       <details>
         <summary>What should we pack?</summary>
@@ -1089,7 +1163,7 @@ if (filled(SITE.name)) document.title = SITE.name + ' — ' + (SITE.village || '
   burger.addEventListener('click', function(){ setMenu(!menu.classList.contains('open')); });
   $$('a', menu).forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
   addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
-  addEventListener('resize', function(){ if (innerWidth > 1080) setMenu(false); });
+  addEventListener('resize', function(){ if (innerWidth > 1180) setMenu(false); });
 
   var links = {};
   $$('.nav__links a').forEach(function(a){ links[a.hash.slice(1)] = a; });

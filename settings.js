@@ -38,7 +38,7 @@ window.SITE = {
   // on the house to drop a pin, and copy the two numbers it shows, e.g.
   // "27.1234, 92.5678". Paste them here. Until then the map shows the village.
   mapPin:   "",
-  mapPlace: "Bichom, West Kameng, Arunachal Pradesh",
+  mapPlace: "27.311,92.592",   // the middle of Bichom village, by the community hall
 
 
   /* ── THE HOMESTAY ────────────────────────────────────────────── */
