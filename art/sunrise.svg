@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Drawing of the sun rising behind layered ridges, with mist in the valleys">
+  <title>First light over the ridges (a drawing)</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a6a72"/><stop offset=".35" stop-color="#b98f73"/><stop offset=".6" stop-color="#efc58f"/><stop offset=".75" stop-color="#f7e2b8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff2cf" stop-opacity=".95"/><stop offset=".4" stop-color="#ffd28a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd28a" stop-opacity="0"/></radialGradient>
+    <filter id="mist"><feGaussianBlur stdDeviation="16"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <circle cx="620" cy="470" r="330" fill="url(#glow)"/>
+  <g stroke="#fff3d6" stroke-width="3" opacity=".25" stroke-linecap="round">
+    <path d="M620 470 L 300 160"/><path d="M620 470 L 470 90"/><path d="M620 470 L 640 60"/><path d="M620 470 L 810 90"/><path d="M620 470 L 960 170"/>
+  </g>
+  <circle cx="620" cy="478" r="62" fill="#fff0c8"/>
+  <circle cx="620" cy="478" r="62" fill="#a83f12" opacity=".12"/>
+  <g fill="#fff" opacity=".5" filter="url(#mist)"><ellipse cx="300" cy="250" rx="160" ry="16"/><ellipse cx="930" cy="210" rx="190" ry="18"/></g>
+  <path d="M0 500 C 120 470, 230 480, 330 452 C 430 424, 520 470, 600 480 C 690 490, 780 440, 880 446 C 990 452, 1090 420, 1200 432 V900 H0Z" fill="#8a8f8c"/>
+  <ellipse cx="600" cy="540" rx="760" ry="44" fill="#f5e6c6" opacity=".7" filter="url(#mist)"/>
+  <path d="M0 590 C 140 556, 260 580, 380 552 C 500 524, 600 580, 720 570 C 860 558, 960 520, 1080 536 C 1140 544, 1180 540, 1200 536 V900 H0Z" fill="#6f7a78"/>
+  <ellipse cx="520" cy="640" rx="820" ry="44" fill="#f5e6c6" opacity=".55" filter="url(#mist)"/>
+  <path d="M0 690 C 180 650, 330 690, 480 660 C 620 632, 720 680, 860 664 C 1000 648, 1100 620, 1200 630 V900 H0Z" fill="#5a6a72"/>
+  <path d="M0 790 C 220 750, 380 790, 560 760 C 760 728, 900 770, 1060 744 C 1120 736, 1170 738, 1200 736 V900 H0Z" fill="#3e4f3a"/>
+  <path d="M0 860 C 260 830, 520 850, 760 826 C 940 810, 1080 824, 1200 816 V900 H0Z" fill="#2c3a29"/>
+  <!-- pines on the near ridge -->
+  <g fill="#2c3a29">
+    <path d="M140 770 l14 -50 l14 50z M170 765 l12 -40 l12 40z M1010 750 l14 -54 l14 54z M1042 748 l11 -38 l11 38z M820 760 l10 -36 l10 36z"/>
+  </g>
+  <!-- birds -->
+  <g stroke="#3e4f3a" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7">
+    <path d="M720 330 q9 -8 18 0 q9 -8 18 0"/><path d="M780 300 q7 -6 14 0 q7 -6 14 0"/><path d="M690 290 q6 -5 12 0 q6 -5 12 0"/>
+  </g>
+</svg>

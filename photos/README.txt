@@ -12,36 +12,49 @@ Rules: taken in Bichom. No stock photos, no AI pictures of people or
 birds. A yes from every person in the photo; a child needs a parent's yes.
 No photo that shows where the nettle grows or where a bird nests.
 
-WHERE EACH PHOTO IS USED
-------------------------
-The top photo of each page:
+WHERE EACH PICTURE IS USED
+--------------------------
+Each part of the page has one big picture behind its words:
 
-  bichom-valley.jpg       Home (and Sunrise and sunset)
+  Home                    photos/bichom-valley.jpg
                           Wanted instead: sunrise from the Bichom view point
-  bichom-hills.jpg        The bird
+  The Bugun bird          art/liocichla.svg  (a drawing)
                           Wanted: the forest, or the bird by a photographer
                           who did NOT use recorded calls
-  bichom-footbridge.jpg   The Lichini walk  (a footbridge or the trail)
-  bichom-river.jpg        The river
+  Bird watching           photos/bichom-hills.jpg
+                          Wanted: guides on a ridge at first light
+  The Lichini walk        photos/bichom-footbridge.jpg
+  The rhododendron walk   art/rhododendron.svg  (a drawing)
+                          Wanted: flowers on the trail
+  The cave                photos/cave.jpg  (photo by Saajan Graphy: ask Saajan for a yes)
+                          Wanted: the cave with a guide in the frame
+  The river               photos/bichom-river.jpg
                           Wanted: people at the nets, with their yes
-  bamboo-basket.jpg       Bamboo and food  (hands at work)
-  fibre-card.jpg          Nettle cloth  (hands at one step)
-  bichom-road.jpg         Our story
+  Sunrise and sunset      art/sunrise.svg  (a drawing)
+                          Wanted: the evening light on the valley
+  Bamboo                  photos/bamboo-basket.jpg  (hands at work)
+  Fruit, food and juice   art/fruit.svg  (a drawing)
+                          Wanted: oranges, persimmons, guavas and amla on
+                          the branch, or a shared meal
+  Nettle cloth            photos/fibre-plant.jpg
+  Our story               photos/bichom-road.jpg
                           Wanted: a portrait, with consent
-  homestay.jpg            Stay and visit  (the homestay or a shared meal)
-  cave.jpg                The cave  (photo by Saajan Graphy: ask Saajan for a yes)
+  Stay and visit          photos/homestay.jpg
 
-Inside the pages:
+Inside the words:
 
   bichom-river-2.jpg      The river
-  bamboo-bag.jpg          Bamboo and food
-  food-bamboo-fire.jpg    Bamboo and food
+  bamboo-bag.jpg          Bamboo
+  food-bamboo-fire.jpg    Bamboo (cooked in bamboo)
   fibre-*.jpg             Nettle cloth: the steps, from the Revival of
                           Memory field record. Replace with the same name.
 
-  small/                  Small square copies for the tiles on the
-                          home page. If you replace one of those photos,
+  small/                  Small square copies for the five tiles on the
+                          home part. If you replace one of those photos,
                           tell Claude, or make a 480 x 480 copy here.
+
+To swap a drawing for a photo: upload the photo here, then in index.html
+change the drawing's name (e.g. art/liocichla.svg) to the photo's name.
 
 Not used yet (spare): craft-round.jpg (needs its name and a caption),
 homestay-2.jpg, rain-lilies.jpg

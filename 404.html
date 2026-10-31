@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bichom</title>
+<script>
+/* The site used to have one file per page. Those addresses now open
+   the same part of the one long page. */
+(function(){
+  var old = {"bird":"bird","lichini":"lichini","river":"river","sun":"sun","bamboo-food":"bamboo","nettle":"nettle","story":"story","visit":"visit","cave":"cave","map":"map"};
+  var m = location.pathname.match(/\/([a-z-]+)\.html$/);
+  var home = /github\.io$/.test(location.hostname) ? '/' + location.pathname.split('/')[1] + '/' : '/';
+  if (m && old[m[1]]) location.replace(home + '#' + old[m[1]]);
+  document.addEventListener('DOMContentLoaded', function(){ document.getElementById('home').href = home; });
+})();
+</script>
+</head>
+<body style="font-family:system-ui,sans-serif;background:#f5f0e6;color:#1e1710;padding:2rem">
+<p>This page isn’t here. <a id="home" href="/">Go to the Bichom home page</a></p>
+</body>
+</html>

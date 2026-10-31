@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Drawing of a Bugun liocichla on a mossy branch in the forest">
+  <title>Bugun liocichla (a drawing)</title>
+  <defs>
+    <radialGradient id="g" cx=".5" cy=".42" r=".75">
+      <stop offset="0" stop-color="#4b7a58"/><stop offset=".55" stop-color="#2a4f3a"/><stop offset="1" stop-color="#132a1d"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="soft2"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="url(#g)"/>
+  <!-- light through the canopy -->
+  <g filter="url(#soft)" fill="#cfe3b6" opacity=".35">
+    <circle cx="260" cy="170" r="70"/><circle cx="930" cy="140" r="90"/><circle cx="1080" cy="380" r="50"/>
+    <circle cx="140" cy="430" r="45"/><circle cx="700" cy="110" r="40"/><circle cx="470" cy="760" r="60"/>
+  </g>
+  <!-- leaves at the edges -->
+  <g fill="#1d3b2a" opacity=".9">
+    <path d="M0 0h260c-40 60-120 90-180 150C40 190 10 230 0 260z"/>
+    <path d="M1200 0H930c50 50 130 70 180 140 40 50 70 90 90 140z"/>
+    <path d="M0 900V650c80 40 160 120 200 250z"/>
+    <path d="M1200 900V610c-90 50-170 140-210 290z"/>
+  </g>
+  <g fill="#2f5a3e">
+    <path d="M60 300c70-40 150-30 200 10-70 20-140 20-200-10z"/><path d="M90 360c60-10 120 10 150 50-60 0-110-20-150-50z"/>
+    <path d="M1140 260c-70-30-150-20-200 20 70 20 140 15 200-20z"/><path d="M1110 330c-60-5-120 15-150 55 60 0 110-20 150-55z"/>
+  </g>
+  <!-- the branch -->
+  <path d="M-20 600 C 220 560, 420 540, 640 528 S 1000 500, 1230 470" stroke="#4a3624" stroke-width="26" fill="none" stroke-linecap="round"/>
+  <path d="M-20 600 C 220 560, 420 540, 640 528 S 1000 500, 1230 470" stroke="#6b5139" stroke-width="8" fill="none" stroke-linecap="round" opacity=".7" transform="translate(0 -7)"/>
+  <path d="M880 510 C 940 470, 990 430, 1020 380" stroke="#4a3624" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <g fill="#7e9c4c">
+    <path d="M150 572q20-24 46-14q-18 6-14 22z"/><path d="M330 548q14-26 44-18q-20 6-16 20z"/><path d="M760 520q18-22 44-12q-20 6-16 18z"/><path d="M1040 494q16-22 40-14q-18 6-14 18z"/>
+  </g>
+  <g fill="#3e6b45">
+    <path d="M1020 380q40-40 90-36q-30 40-90 36z"/><path d="M1015 392q-10-50 20-86q14 46-20 86z"/>
+  </g>
+  <!-- the bird: olive-grey, black cap, golden face, red and yellow in the wing, red at the tail -->
+  <g transform="translate(283 160) scale(1.8)">
+    <path d="M206 150 L 292 186 L 284 198 L 196 166 Z" fill="#5f6650"/>
+    <path d="M270 179 L 292 186 L 284 198 L 264 191 Z" fill="#c8452e"/>
+    <path d="M96 140 C 96 104, 132 86, 172 92 C 208 98, 228 124, 222 148 C 216 174, 186 188, 150 184 C 118 181, 96 166, 96 140 Z" fill="#7f8669"/>
+    <path d="M112 156 C 130 176, 170 182, 196 172 C 176 186, 128 186, 112 156 Z" fill="#9aa081"/>
+    <path d="M142 118 C 170 108, 204 118, 218 142 C 196 150, 164 148, 142 134 Z" fill="#c8452e"/>
+    <path d="M150 122 C 172 116, 198 124, 210 138" stroke="#e9b13e" stroke-width="3" fill="none"/>
+    <path d="M160 140 C 180 142, 198 144, 212 146" stroke="#f1e6c8" stroke-width="2" fill="none" opacity=".8"/>
+    <circle cx="104" cy="112" r="30" fill="#7f8669"/>
+    <path d="M76 104 C 80 82, 114 76, 130 96 C 116 92, 94 94, 76 104 Z" fill="#1e1e1a"/>
+    <ellipse cx="98" cy="118" rx="17" ry="13" fill="#e9a23b"/>
+    <circle cx="94" cy="113" r="4" fill="#141412"/><circle cx="95.2" cy="111.8" r="1.2" fill="#fff"/>
+    <path d="M76 110 L 60 115 L 76 120 Z" fill="#2b2b26"/>
+    <path d="M146 184 L 142 200 M 166 184 L 168 200" stroke="#3c3a33" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+</svg>
