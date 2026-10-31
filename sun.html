@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunrise and sunset · Bichom</title>
+<meta name="description" content="Where to stand at Bichom for sunrise and sunset, and the times month by month.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sunrise and sunset · Bichom">
+<meta property="og:description" content="Where to stand at Bichom for sunrise and sunset, and the times month by month.">
+<meta property="og:image" content="https://vikrantcharak.github.io/bugun-/photos/bichom-valley.jpg">
+<meta name="theme-color" content="#f5f0e6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f5f0e6'/%3E%3Ccircle cx='21' cy='12' r='4.5' fill='%23a83f12'/%3E%3Cpath d='M3 25 L11 15 L16 20 L20 16 L29 25Z' fill='%234f6333'/%3E%3Cpath d='M3 27.5h26' stroke='%235a6a72' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<!--
+  The words on this page are the community's. Change them here, then
+  read the page aloud to the community again.
+  Facts in [square brackets] come from settings.js. The photo names are
+  in photos/README.txt.
+-->
+</head>
+<body data-page="sun">
+<header class="top" id="top"><div class="bar"><a class="brand" href="index.html">Bichom</a></div></header>
+<main>
+<figure class="lead">
+  <img src="photos/bichom-valley.jpg" alt="Forested hills and a valley under a cloudy sky" width="1600" height="1200" fetchpriority="high">
+  <figcaption>The valley, from Bichom.</figcaption>
+</figure>
+<div class="col">
+<h1>Two good lights.</h1>
+<p data-need>Morning: stand at <span data-set="sun.morningSpot">[spot]</span>. The sun clears the ridge at about <span data-set="sun.morningTime">[time, by season]</span>.</p>
+<p data-need>Evening: stand at <span data-set="sun.eveningSpot">[spot]</span>. <span data-set="sun.eveningView">[What you see from there.]</span></p>
+<p>Come ten minutes early. The best light is short.</p>
+
+<h2>Month by month</h2>
+<table class="sun">
+  <thead><tr><th scope="col">Month</th><th scope="col">Sunrise</th><th scope="col">Sunset</th></tr></thead>
+  <tbody id="sunRows"></tbody>
+</table>
+<p class="small">Worked out for <span id="sunWhere">Bichom village</span>, on the 15th of each month, Indian time, as if the horizon were flat. The hills make the first sun later and the last sun earlier.</p>
+
+<div class="btns">
+  <a class="btn btn-wa" data-wa="sunrise and sunset" href="visit.html#write">Message us on WhatsApp</a>
+</div>
+</div>
+</main>
+<footer class="foot" id="foot"><div class="col"><p class="gift">A gift to the Bugun people of Bichom, from Ricky (Vikrant Charak), IIT Delhi.</p></div></footer>
+<script src="settings.js"></script>
+<script src="places.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

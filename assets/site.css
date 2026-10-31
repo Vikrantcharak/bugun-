@@ -1,0 +1,183 @@
+/* ═══════════════════════════════════════════════════════════════════
+   BICHOM — the look of every page
+
+   A village notebook: warm paper, dark brown ink, moss for links and
+   the bird, slate for the river and the map, and one rust button per
+   page ("Message us on WhatsApp").
+   Designed for a 400 px phone first, then widened.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@font-face{font-family:"Source Serif 4";src:url(../fonts/source-serif-4.woff2) format("woff2");font-weight:200 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url(../fonts/source-sans-3.woff2) format("woff2");font-weight:200 900;font-style:normal;font-display:swap}
+
+:root{
+  --paper:#f5f0e6;  --paper-2:#ece4d3;  --line:#ddd2bd;
+  --ink:#1e1710;    --ink-2:#4a3f33;    --ink-3:#6b5f50;
+  --moss:#4f6333;   --river:#5a6a72;    --rust:#a83f12;   --rust-dk:#8a330e;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --col:38rem;      /* the reading column */
+  --wide:60rem;     /* photos, tiles and the map */
+  --gut:16px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+@media(min-width:700px){body{font-size:1.125rem}}
+img,video{display:block;max-width:100%;height:auto}
+a{color:var(--moss);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--moss);outline-offset:3px;border-radius:4px}
+::selection{background:#e5d7b5}
+
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,6.4vw,3rem);margin:1.4rem 0 .5rem}
+h2{font-size:clamp(1.45rem,4.4vw,1.9rem);margin:2.6rem 0 .7rem}
+h3{font-size:1.2rem;margin:1.6rem 0 .4rem}
+p{margin:0 0 1rem}
+.sub{font-size:1.15rem;color:var(--ink-2);margin-bottom:1.4rem}
+.col{max-width:calc(var(--col) + 2*var(--gut));margin:0 auto;padding:0 var(--gut)}
+.wide{max-width:calc(var(--wide) + 2*var(--gut));margin:0 auto;padding:0 var(--gut)}
+
+/* ── header ─────────────────────────────────────────────────────── */
+.top{border-bottom:1px solid var(--line);min-height:57px}
+.bar{display:flex;align-items:center;gap:1rem;max-width:calc(var(--wide) + 2*var(--gut));margin:0 auto;padding:.55rem var(--gut);min-height:56px}
+.brand{font:600 1.35rem/1 var(--serif);color:var(--ink);text-decoration:none;margin-right:auto;padding:.4rem 0}
+.nav{display:none;align-items:center;gap:1.3rem;font-size:1rem}
+.nav a,.more summary{color:var(--ink-2);text-decoration:none;padding:.4rem 0;cursor:pointer}
+.nav a:hover,.more summary:hover{color:var(--ink)}
+.nav a[aria-current=page]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--moss)}
+.more{position:relative}
+.more summary{list-style:none}
+.more summary::-webkit-details-marker{display:none}
+.more summary::after{content:" ▾";font-size:.8em}
+.more div{position:absolute;right:0;top:calc(100% + .5rem);z-index:20;min-width:13rem;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.4rem 0;box-shadow:0 12px 30px -12px rgba(30,23,16,.35)}
+.more div a{display:block;padding:.6rem 1rem}
+.lang{font-size:1rem;color:var(--ink-2)}
+.menu-btn{font:600 1rem/1 var(--sans);color:var(--ink);background:transparent;border:1.5px solid var(--ink);border-radius:8px;min-height:44px;padding:0 1rem;cursor:pointer}
+.sheet{border-bottom:1px solid var(--line);padding:.2rem var(--gut) 1rem}
+.sheet a{display:block;padding:.8rem 0;border-bottom:1px solid var(--line);font:500 1.2rem var(--serif);color:var(--ink);text-decoration:none}
+.sheet a[aria-current=page]{color:var(--moss)}
+.sheet p{margin:1.2rem 0 0;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.sheet .off,.nav .off{opacity:.55}
+@media(min-width:880px){.nav{display:flex}.menu-btn,.sheet{display:none!important}}
+
+/* ── the photo at the top of every page ────────────────────────── */
+.lead{margin:0 auto;max-width:var(--wide)}
+.lead img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--paper-2)}
+@media(min-width:700px){.lead{padding:1.2rem var(--gut) 0}.lead img{aspect-ratio:3/2;max-height:72vh;border-radius:6px}}
+figcaption{font-size:.9rem;line-height:1.45;color:var(--ink-3);margin-top:.45rem}
+.lead figcaption{padding:0 var(--gut)}
+@media(min-width:700px){.lead figcaption{padding:0}}
+figcaption b{color:var(--ink-2);font-weight:600}
+
+/* photos inside a page */
+.ph{margin:1.6rem 0}
+.ph img{width:100%;border-radius:6px;background:var(--paper-2)}
+.ph.tall img{aspect-ratio:4/5;object-fit:cover}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1.6rem 0}
+.pair .ph{margin:0}
+.pair img{aspect-ratio:3/4;object-fit:cover}
+
+/* ── buttons: rust for the one WhatsApp button, outline for the rest ── */
+.btns{display:grid;gap:.7rem;margin:2rem 0 .4rem}
+@media(min-width:560px){.btns{display:flex;flex-wrap:wrap}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:54px;padding:.8rem 1.4rem;border-radius:10px;font:700 1.05rem/1.2 var(--sans);text-decoration:none;text-align:center;border:2px solid transparent;cursor:pointer}
+.btn svg{width:22px;height:22px;flex:none}
+.btn-wa{background:var(--rust);color:#fff}
+.btn-wa:hover{background:var(--rust-dk);color:#fff}
+.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.wa-note{font-size:.95rem;color:var(--ink-3);margin:.3rem 0 0}
+
+/* ── home: six photo tiles ─────────────────────────────────────── */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:1rem .8rem;margin:2rem 0 0;padding:0;list-style:none}
+@media(min-width:700px){.tiles{grid-template-columns:repeat(3,1fr);gap:1.4rem 1.1rem}}
+.tiles a{display:block;color:var(--ink);text-decoration:none}
+.tiles img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;background:var(--paper-2)}
+.tiles span{display:block;margin-top:.45rem;font:600 1.08rem/1.25 var(--serif)}
+.tiles a:hover span{color:var(--moss);text-decoration:underline}
+
+/* ── notes, lists, quotes ──────────────────────────────────────── */
+.note{border-left:4px solid var(--moss);background:rgba(79,99,51,.08);padding:.9rem 1.1rem;border-radius:0 6px 6px 0;margin:1.4rem 0}
+.note p:last-child{margin:0}
+.river-note{border-left-color:var(--river);background:rgba(90,106,114,.09)}
+.list{margin:0 0 1rem;padding-left:1.3rem}
+.list li{margin-bottom:.4rem}
+.rules{list-style:none;margin:0 0 1rem;padding:0;border-top:1px solid var(--line)}
+.rules li{padding:.65rem 0;border-bottom:1px solid var(--line)}
+blockquote{margin:1.4rem 0;padding:0 0 0 1.1rem;border-left:3px solid var(--ink);font:400 1.2rem/1.5 var(--serif);white-space:pre-line}
+blockquote cite{display:block;margin-top:.6rem;font:600 .95rem var(--sans);font-style:normal;color:var(--ink-3)}
+.facts{margin:0 0 1rem;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:7.5rem 1fr;gap:.8rem;padding:.65rem 0;border-bottom:1px solid var(--line)}
+.facts dt{font-weight:700;color:var(--ink-2)}
+.facts dd{margin:0}
+.sources{margin-top:2.6rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-3)}
+.sources a{color:var(--ink-3)}
+.name{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .7rem;margin:0 0 1rem}
+.name b{font:600 1.6rem var(--serif)}
+.name span{color:var(--ink-3)}
+
+/* say the name: a small play button, only when audio/<name>.mp3 exists */
+.say{display:inline-flex;align-items:center;gap:.45rem;min-height:40px;padding:.3rem .9rem .3rem .5rem;border:1.5px solid var(--moss);border-radius:999px;background:transparent;color:var(--moss);font:600 .95rem var(--sans);cursor:pointer;vertical-align:middle}
+.say svg{width:22px;height:22px}
+.say:hover{background:var(--moss);color:var(--paper)}
+.say-row{margin:-.2rem 0 1rem}
+
+/* ── nettle steps ──────────────────────────────────────────────── */
+.steps{list-style:none;margin:1.2rem 0;padding:0;counter-reset:st}
+.steps li{counter-increment:st;margin:0 0 1.6rem}
+.steps img{width:100%;border-radius:6px;background:#f7f5e9}
+.steps h3{margin:.7rem 0 .25rem}
+.steps h3::before{content:counter(st) ". ";color:var(--rust)}
+.steps p{margin:0}
+.plate{margin:1.6rem 0;background:#f7f5e9;border-radius:6px;padding:.6rem}
+.plate figcaption{padding:0 .2rem}
+
+/* ── dishes ────────────────────────────────────────────────────── */
+.dishes{list-style:none;margin:1rem 0;padding:0;display:grid;gap:1.4rem}
+.dishes img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-bottom:.5rem}
+.dishes b{display:block;font:600 1.25rem var(--serif)}
+.dishes i{font-style:normal;color:var(--ink-3)}
+.dishes p{margin:.3rem 0 0}
+.tag{display:inline-block;margin-top:.4rem;padding:.1rem .6rem;border-radius:999px;background:rgba(79,99,51,.12);color:var(--moss);font-size:.85rem;font-weight:700}
+
+/* ── sunrise and sunset table ──────────────────────────────────── */
+.sun{width:100%;border-collapse:collapse;margin:.6rem 0 .5rem;font-variant-numeric:tabular-nums}
+.sun th,.sun td{text-align:left;padding:.5rem .4rem;border-bottom:1px solid var(--line)}
+.sun thead th{font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.sun td:first-child{font-weight:600}
+.small{font-size:.92rem;color:var(--ink-3)}
+
+/* ── map: numbered pins, the list underneath ───────────────────── */
+.map{margin:1.2rem 0;background:#efe8da;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.map svg{display:block;width:100%;height:auto}
+.places{list-style:none;margin:1rem 0;padding:0;border-top:1px solid var(--line)}
+.places li{display:grid;grid-template-columns:2.2rem 1fr;gap:.7rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.places .n{width:2rem;height:2rem;border-radius:50%;background:var(--river);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.95rem}
+.places b{display:block;font-family:var(--serif);font-size:1.1rem}
+.places span{display:block;color:var(--ink-2);font-size:.98rem}
+.places a{display:inline-block;margin-top:.15rem;font-size:.95rem}
+
+/* short clips: only when the file is in videos/ */
+.clip video{width:100%;border-radius:6px;background:#000}
+
+/* ── footer ────────────────────────────────────────────────────── */
+.foot{margin-top:3.5rem;border-top:1px solid var(--line);background:var(--paper-2);padding:2rem 0 2.4rem;font-size:.98rem;color:var(--ink-2)}
+.foot ul{list-style:none;margin:0 0 1.4rem;padding:0;display:flex;flex-wrap:wrap;gap:.3rem 1.2rem}
+.foot a{color:var(--ink-2)}
+.foot p{margin:0 0 .6rem}
+.gift{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
+
+/* ── keeper's preview (#setup): shows what is still in [brackets] ── */
+.setup .gap{background:#fbe39a;color:var(--ink);border-radius:3px;padding:0 .2em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.setup [data-need].was-hidden{outline:2px dashed #d9a400;outline-offset:4px;border-radius:2px}
+.setup [data-else]{opacity:.6}
+.setup [data-else]::before{content:"Visitors see instead: ";font-weight:700}
+.keeper{position:fixed;left:8px;right:8px;bottom:8px;z-index:50;max-width:26rem;max-height:55vh;overflow:auto;background:#fff8e1;color:var(--ink);border:2px solid #d9a400;border-radius:10px;padding:.9rem 1rem;font-size:.92rem;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.keeper b{display:block;margin-bottom:.3rem}
+.keeper ul{margin:.4rem 0 .7rem;padding-left:1.1rem}
+.keeper code{font-size:.88em;background:#fdeeb8;padding:0 .25em;border-radius:3px}
+.keeper button{font:700 .9rem var(--sans);background:var(--ink);color:#fff;border:0;border-radius:8px;padding:.5rem .9rem;margin-right:.4rem;cursor:pointer}
+.closed{padding-top:2rem;padding-bottom:2rem}

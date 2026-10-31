@@ -1,19 +1,15 @@
-VIDEOS
-======
+SHORT CLIPS
+===========
 
-1. LONG VIDEOS (a walk across the bridge, fishing, the hike, cooking)
-   Put them on YouTube. "Unlisted" is fine if you don't want them public
-   on your channel. Then paste each link into settings.js under "videos".
-   A "Watch" button appears on that part of the website.
+Optional. Ten to fifteen seconds each, filmed sideways, kept still.
+They play only when a visitor taps them, and start with no sound.
 
-2. A SHORT CLIP FOR THE TOP OF THE PAGE
-   hero.mp4 here plays silently on a loop behind the title, like a moving
-   photo. Best: 10 to 20 seconds of the river, the bridge, or mist in the
-   hills, filmed with the phone held sideways and kept still.
-   Keep it under about 8 MB. Claude can cut and shrink one for you.
+  river.mp4   the river      → appears on the river page
+  nets.mp4    at the nets    → appears on the river page (with consent)
 
-3. CLIPS TO TURN INTO PHOTOS
-   Short clips (under 25 MB each, GitHub's upload limit) can be uploaded
-   anywhere in this repo. Claude can cut sharp still photos out of them.
-   Tip: send a video to yourself on WhatsApp first; the downloaded copy
-   is much smaller.
+Upload a file with exactly that name and it appears by itself.
+Keep each one small (under about 3 MB). If the site feels slow on a
+weak signal, remove these first.
+
+Tip: send a video to yourself on WhatsApp first; the downloaded copy is
+much smaller. Claude can also cut and shrink one for you.
