@@ -8,9 +8,11 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Welcome to Bichom">
 <meta property="og:description" content="Bichom village, Singchung sub-division, West Kameng, Arunachal Pradesh. A Bugun village: the bird that lives almost nowhere else, walks to Lichini, the rhododendrons and the cave, the river, bamboo, fruit and nettle cloth. Come slowly. Stay a few nights.">
-<meta property="og:image" content="https://vikrantcharak.github.io/bugun-/photos/bichom-valley.jpg">
+<meta property="og:image" content="https://vikrantcharak.github.io/bugun-/photos/bichom-aerial.jpg">
 <meta name="theme-color" content="#f5f0e6">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f5f0e6'/%3E%3Ccircle cx='21' cy='12' r='4.5' fill='%23a83f12'/%3E%3Cpath d='M3 25 L11 15 L16 20 L20 16 L29 25Z' fill='%234f6333'/%3E%3Cpath d='M3 27.5h26' stroke='%235a6a72' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
 <link rel="preload" href="fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
@@ -19,7 +21,7 @@
   The whole site is this one page. Scroll down and each part follows
   the last: Home, The Bugun bird, Bird watching, The Lichini walk, The
   rhododendron walk, The cave, The river, Sunrise and sunset, Bamboo,
-  Fruit food and juice, Nettle cloth, Our story, Stay and visit.
+  Fruit food and juice, Nettle cloth, Our story, Stay and visit, Map.
 
   The words are the community's. Change them here, then read the part
   aloud to the community again.
@@ -34,13 +36,14 @@
 
 <!-- ════════════ HOME ════════════ -->
 <section class="ch" id="home">
-  <div class="ch__bg"><img src="photos/bichom-valley.jpg" alt="Forested hills and a valley under a cloudy sky" width="1600" height="1200" fetchpriority="high"></div>
+  <div class="ch__bg"><img src="photos/bichom-aerial.jpg" alt="Bichom village from above: roofs along the road, the river and the green valley" width="1280" height="960" fetchpriority="high"></div>
   <div class="ch__body">
     <header class="ch__head">
       <h1>Welcome to Bichom.</h1>
       <p class="sub">A Bugun village in Singchung sub-division, West Kameng, Arunachal Pradesh.</p>
       <p class="say-row" data-say="bichom" data-say-label="Bichom" hidden></p>
-      <p class="cap">The valley, from Bichom.</p>
+      <p class="cap">Bichom village from above.</p>
+      <a class="cue" href="#bird"><i></i>Scroll</a>
     </header>
     <div class="paper">
 <p>We are the Bugun, <span data-set="people">about 1,500</span> people. We keep a forest, a river and a small bird that lives almost nowhere else. Come slowly. Stay a few nights. Walk with us.</p>
@@ -276,15 +279,17 @@
     </header>
     <div class="paper">
 <p>Some of our families still work bamboo by hand<span data-need>, and they make <span data-set="bamboo.make">[what they make]</span></span>.<span data-need> You can <span data-set="bamboo.youCan">[watch / try / buy]</span>.</span> Please ask before you photograph anyone at work.</p>
-<figure class="tall">
-  <img src="photos/bamboo-bag.jpg" alt="A woven bag held up by its handles" width="900" height="1200" loading="lazy">
-  <figcaption>A woven bag, Bichom.</figcaption>
-</figure>
 <p><b>Cooked in bamboo.</b> <span data-need><span data-set="bamboo.cooked">[What is cooked inside a bamboo tube, how it is done, and for which meals or days.]</span></span></p>
-<figure class="tall">
-  <img src="photos/food-bamboo-fire.jpg" alt="Bamboo tubes standing in the embers of a fire at night" width="1050" height="1400" loading="lazy">
-  <figcaption>Bamboo tubes stood in the fire.</figcaption>
-</figure>
+<div class="swipe">
+  <figure class="tall">
+    <img src="photos/bamboo-bag.jpg" alt="A woven bag held up by its handles" width="900" height="1200" loading="lazy">
+    <figcaption>A woven bag, Bichom.</figcaption>
+  </figure>
+  <figure class="tall">
+    <img src="photos/food-bamboo-fire.jpg" alt="Bamboo tubes standing in the embers of a fire at night" width="1050" height="1400" loading="lazy">
+    <figcaption>Bamboo tubes stood in the fire.</figcaption>
+  </figure>
+</div>
 <p data-need><span data-set="bamboo.cutting">[Where the bamboo is cut, and who may cut it.]</span></p>
 <div class="btns">
   <a class="btn btn-wa" data-wa="bamboo" href="#write">Ask about bamboo</a>
@@ -335,7 +340,7 @@
 <p class="name" data-need><b data-set="nettle.name">[The Bugun name for the nettle.]</b><span>the nettle</span></p>
 <blockquote data-need><span data-set="nettle.makersWords">[In the makers’ own words: who made nettle cloth, who remembers how, and who is making it again.]</span><cite data-need>— <span data-set="nettle.makersName">[who said it]</span></cite></blockquote>
 <p>Here are the steps, as the people who do this work tell them.</p>
-<ol class="steps">
+<ol class="steps swipe">
   <li>
     <img src="photos/fibre-plant.jpg" alt="A stem of Shaung held in the hand" width="900" height="1200" loading="lazy">
     <h3>Cut and peel</h3>
@@ -417,7 +422,7 @@
     </header>
     <div class="paper">
 <p><b>When.</b> Birds are easiest to find in April and May, and guides take groups from October to May. Rhododendrons flower from about March to May. Our harvest festival, Pham Kho Sowai, is on 10 September in Singchung<span data-need> <span data-set="visit.festival">[and how Bichom keeps it]</span></span>.<span data-need> <span data-set="visit.otherMonths">[What the river, the walk and the light are like in the other months.]</span></span></p>
-<p><b>How to reach us.</b> <span data-need><span data-set="visit.reach">[Nearest town, the road, how long the last stretch takes, and where the vehicle stops.]</span></span> <a data-village-map href="https://www.google.com/maps/search/?api=1&amp;query=27.311,92.592" target="_blank" rel="noopener">Open Bichom village in Google Maps</a>.</p>
+<p><b>How to reach us.</b> <span data-need><span data-set="visit.reach">[Nearest town, the road, how long the last stretch takes, and where the vehicle stops.]</span></span> <a href="#map">See the map</a>, or <a data-village-map href="https://www.google.com/maps/search/?api=1&amp;query=27.311,92.592" target="_blank" rel="noopener">open Bichom village in Google Maps</a>.</p>
 <p><b>Permits.</b> Indian citizens who are not from Arunachal need an Inner Line Permit, which tourists can request online through the state’s <a data-permit-link href="#">e-ILP portal</a>. Visitors from other countries need a Protected Area Permit. Please check <a href="https://arunpol.nic.in/ilp.html" target="_blank" rel="noopener">the official page</a> before you travel, because the rules change.</p>
 <p><b>Where you sleep.</b> <span data-need><span data-set="homestay.name">[Homestay name]</span>.</span></p>
 <dl class="facts">
@@ -446,19 +451,36 @@
   </div>
 </section>
 
-<!-- ════════════ MAP (appears when places.js has a place) ════════════ -->
-<section class="ch ch--plain" id="map">
-  <div class="paper">
-    <p class="kicker" style="color:var(--ink-3)">More · Map</p>
-    <h2 style="font-size:clamp(1.8rem,6vw,2.4rem);margin-bottom:.6rem">Places around Bichom.</h2>
-    <p>Numbered on the map, listed underneath. We show only places whose owners said yes.</p>
-    <div data-map="all" hidden>
-      <div class="map"></div>
-      <ol class="places"></ol>
+<!-- ════════════ More · Map ════════════ -->
+<section class="ch" id="map">
+  <div class="ch__bg"><img src="photos/bichom-aerial-2.jpg" alt="Bichom village from above, with the river and the valley beyond" width="1280" height="960" loading="lazy"></div>
+  <div class="ch__body">
+    <header class="ch__head">
+      <p class="kicker">More · Map</p>
+      <h2>Places around Bichom.</h2>
+      <p class="cap">Bichom village from above.</p>
+    </header>
+    <div class="paper">
+<p>Numbered on the map, listed underneath. We show only public places: villages, footbridges, the view point and the road. Homes, farms, shops, fishing spots and the places where the nettle grows are left off.</p>
+<div class="maptabs" role="tablist" aria-label="Which map">
+  <button type="button" role="tab" aria-selected="true" aria-controls="map-valley">Around Bichom</button>
+  <button type="button" role="tab" aria-selected="false" aria-controls="map-road">The road in</button>
+</div>
+<div id="map-valley" data-map="valley" hidden>
+  <div class="map"></div>
+  <ol class="places"></ol>
+</div>
+<div id="map-road" data-map="road" hidden>
+  <div class="map"></div>
+  <ol class="places"></ol>
+</div>
+<p class="small">Points from our own field map, September–October 2026. Tap “Open in Google Maps” for directions.</p>
+<div class="btns">
+  <a class="btn btn-wa" data-wa="" href="#write">Message us on WhatsApp</a>
+</div>
     </div>
-    <p><a data-village-map href="https://www.google.com/maps/search/?api=1&amp;query=27.311,92.592" target="_blank" rel="noopener">Open Bichom village in Google Maps</a></p>
+    <div class="ch__after"></div>
   </div>
-  <div class="ch__after"></div>
 </section>
 
 </main>

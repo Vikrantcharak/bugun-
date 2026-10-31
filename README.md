@@ -11,19 +11,21 @@ person in Bichom can keep it alive.
 |---|---|---|
 | `settings.js` | WhatsApp number, which parts are open, and every fact only the hosts can give | **Yes, this is the one** |
 | `index.html` | The whole site: one long page, and the words of every part | Only to change words |
-| `places.js` | Points on the map | When you add map points |
+| `places.js` | Places on the two maps (from the field KML), and the road in | When you add map points |
 | `photos/` | The photos. Names are in `photos/README.txt` | **Yes** |
 | `art/` | Drawings used until real photos exist (the bird, rhododendrons, fruit, sunrise) | Replace with photos later |
 | `audio/` | "Say the name" recordings. See `audio/README.txt` | Optional |
 | `videos/` | Short clips of the river and the nets. See `videos/README.txt` | Optional |
-| `assets/`, `fonts/`, `404.html` | The look, the shared script, old page addresses | No |
+| `assets/`, `fonts/`, `404.html`, `sw.js`, `manifest.webmanifest` | The look, the script, old page addresses, the phone app | No |
 
 ## One long page
 
-The site is one page that you scroll. Each part has its own picture, which
-stays behind the words while you read; scroll on and the next part's picture
-slides up over it. Every part ends with a "Next" link, and the menu jumps
-straight to any part.
+The site is one page that you scroll. Each part has its own picture behind
+the words; as you reach the next part, its picture fades in with a slow zoom.
+Every part ends with a "Next" link. On phones a tab bar at the bottom (Birds,
+Walks, River, Made here, Visit) jumps to each group; on big screens, dots on
+the right do the same. Visitors can add the site to their phone's home screen
+like an app, and once opened it still works on a weak or missing signal.
 
 | # | Part | Menu | Its one job |
 |---|---|---|---|
@@ -40,7 +42,7 @@ straight to any part.
 | 11 | Nettle cloth | Made here | How the nettle becomes thread |
 | 12 | Our story | More | Who the Bugun are, in the elders' words |
 | 13 | Stay and visit | Visit | When, how to reach us, permits, rules, contact |
-| | Map | More | Appears when `places.js` has a place |
+| 14 | Map | More | Two maps: around Bichom, and the road in from Tenga |
 
 All thirteen parts are open. To hold one back, change it to `false` under
 `pages` in `settings.js`. The plan suggests holding the cave until someone has
@@ -134,12 +136,14 @@ Tick these off as the answers arrive. Each one has a place in `settings.js`.
 - [ ] How Bichom keeps Pham Kho Sowai → `visit.festival`
 - [ ] The stay: homestay name, rooms, beds, bathroom, price or "ask" → `homestay`
 - [ ] How to reach: nearest town, the road, the last stretch, where the vehicle stops → `visit.reach`
-- [ ] The WhatsApp number and the name of the person who answers → `whatsapp`, `contactName`
+- [x] The WhatsApp number → `whatsapp`
+- [ ] The name of the person who answers → `contactName`
 - [ ] The official e-ILP link, checked by a person → `permitLink`
 - [ ] The number of Bugun the community uses today → `people`
 - [ ] A keeper's name, and the community body that will own the domain
 - [ ] A yes from every person shown in a photo
-- [ ] The 56 points from the KML, each with its owner's yes → `places.js`
+- [x] The KML: 15 public places and the road are on the maps → `places.js`
+- [ ] Shops, the hotel and the bamboo craftsmen from the KML: add each only with its owner's yes
 
 ## Owning it
 

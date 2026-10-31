@@ -16,8 +16,8 @@ WHERE EACH PICTURE IS USED
 --------------------------
 Each part of the page has one big picture behind its words:
 
-  Home                    photos/bichom-valley.jpg
-                          Wanted instead: sunrise from the Bichom view point
+  Home                    photos/bichom-aerial.jpg  (the village from above)
+                          The plan also wants: sunrise from the Bichom view point
   The Bugun bird          art/liocichla.svg  (a drawing)
                           Wanted: the forest, or the bird by a photographer
                           who did NOT use recorded calls
@@ -40,6 +40,7 @@ Each part of the page has one big picture behind its words:
   Our story               photos/bichom-road.jpg
                           Wanted: a portrait, with consent
   Stay and visit          photos/homestay.jpg
+  Map                     photos/bichom-aerial-2.jpg
 
 Inside the words:
 
@@ -57,7 +58,7 @@ To swap a drawing for a photo: upload the photo here, then in index.html
 change the drawing's name (e.g. art/liocichla.svg) to the photo's name.
 
 Not used yet (spare): craft-round.jpg (needs its name and a caption),
-homestay-2.jpg, rain-lilies.jpg
+homestay-2.jpg, rain-lilies.jpg, bichom-valley.jpg
 
 DISHES
 ------

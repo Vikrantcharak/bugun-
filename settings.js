@@ -63,8 +63,8 @@ window.SITE = {
   /* ── WHATSAPP ───────────────────────────────────────────────────
      Country code + number, digits only. No +, no spaces.
      Example: an Indian mobile 98765 43210  →  "919876543210"            */
-  whatsapp:    "91XXXXXXXXXX",
-  phoneShown:  "",   // optional: how the number is written, e.g. "+91 98765 43210"
+  whatsapp:    "918729948632",
+  phoneShown:  "+91 87299 48632",   // how the number is written on the page
   contactName: "",   // the person who answers
 
 

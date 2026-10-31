@@ -145,19 +145,6 @@ var navItems = {};   /* group name → its menu element, to mark the part you ar
   addEventListener('keydown', function(e){ if (e.key === 'Escape'){ setSheet(false); $$('.grp', top).forEach(function(d){ d.open = false; }); } });
 })();
 
-/* mark the menu group of the part you are reading */
-(function(){
-  if (!('IntersectionObserver' in window)) return;
-  var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if (!e.isIntersecting) return;
-      var part = PARTS.filter(function(p){ return p.id === e.target.id; })[0];
-      Object.keys(navItems).forEach(function(g){ navItems[g].classList.toggle('on', !!part && part.group === g); });
-    });
-  }, {rootMargin: '-45% 0px -50% 0px'});
-  PARTS.forEach(function(p){ var s = document.getElementById(p.id); if (s) io.observe(s); });
-})();
-
 /* ── "Next" at the end of each part ── */
 (function(){
   var visible = PARTS.filter(function(p){ var s = document.getElementById(p.id); return s && !s.hidden; });
@@ -303,43 +290,70 @@ function clock(min){
   });
 })();
 
-/* ── the map: numbered pins, the list underneath ── */
+/* ── the maps: numbered pins and labels, the list underneath ── */
+var ROAD = String((window.ROUTES || {}).road || '').trim().split(/\s+/).map(function(t){ var c = t.split(','); return [+c[0], +c[1]]; }).filter(function(c){ return isFinite(c[0]) && isFinite(c[1]); });
 function mapsLink(p){ return 'https://www.google.com/maps/search/?api=1&query=' + p.lat + ',' + p.lng; }
-function drawMap(box, pts){
-  var lat0 = pts.reduce(function(s, p){ return s + p.lat; }, 0) / pts.length;
+function drawMap(box, pts, opts){
+  var NS = 'http://www.w3.org/2000/svg';
+  var bound = pts.map(function(p){ return [p.lat, p.lng]; });
+  if (opts.fitRoute) bound = bound.concat(opts.route);
+  var lat0 = bound.reduce(function(s, c){ return s + c[0]; }, 0) / bound.length;
   var k = Math.cos(lat0 * Math.PI / 180);
-  var xs = pts.map(function(p){ return p.lng * k; }), ys = pts.map(function(p){ return -p.lat; });
+  var xs = bound.map(function(c){ return c[1] * k; }), ys = bound.map(function(c){ return -c[0]; });
   var minX = Math.min.apply(0, xs), maxX = Math.max.apply(0, xs), minY = Math.min.apply(0, ys), maxY = Math.max.apply(0, ys);
   var dx = Math.max(maxX - minX, 0.004), dy = Math.max(maxY - minY, 0.004);
-  var W = 480, H = Math.round(Math.min(560, Math.max(300, W * dy / dx))), pad = 46;
+  var W = 560, H = Math.round(Math.min(560, Math.max(320, W * dy / dx))), pad = 42;
   var s = Math.min((W - 2 * pad) / dx, (H - 2 * pad) / dy);
   var ox = (W - s * (maxX - minX)) / 2, oy = (H - s * (maxY - minY)) / 2;
-  function X(p){ return ox + (p.lng * k - minX) * s; }
-  function Y(p){ return oy + (-p.lat - minY) * s; }
-  /* scale bar: a round number of km, about a fifth of the width */
+  function X(lat, lng){ return ox + (lng * k - minX) * s; }
+  function Y(lat){ return oy + (-lat - minY) * s; }
+  function path(list){ return list.map(function(c, i){ return (i ? 'L' : 'M') + X(c[0], c[1]).toFixed(1) + ' ' + Y(c[0]).toFixed(1); }).join(''); }
   var kmPx = s / 111.32, want = W / 5 / kmPx, steps = [0.25, 0.5, 1, 2, 5, 10, 20], km = steps[0];
   steps.forEach(function(v){ if (v <= want) km = v; });
-  var bar = km * kmPx;
-  var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Map with numbered places; the list is below">';
-  svg += '<g stroke="#5a6a72" stroke-opacity=".12">';
-  for (var gx = 0; gx <= W; gx += 48) svg += '<path d="M' + gx + ' 0V' + H + '"/>';
-  for (var gy = 0; gy <= H; gy += 48) svg += '<path d="M0 ' + gy + 'H' + W + '"/>';
+  var id = 'clip' + Math.random().toString(36).slice(2, 7);
+  var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + opts.label + '. The numbered list is below.">' +
+    '<defs><clipPath id="' + id + '"><rect width="' + W + '" height="' + H + '"/></clipPath></defs><g clip-path="url(#' + id + ')">' +
+    '<rect width="' + W + '" height="' + H + '" fill="#efe6d4"/><g stroke="#5a6a72" stroke-opacity=".1">';
+  for (var gx = 0; gx <= W; gx += 40) svg += '<path d="M' + gx + ' 0V' + H + '"/>';
+  for (var gy = 0; gy <= H; gy += 40) svg += '<path d="M0 ' + gy + 'H' + W + '"/>';
   svg += '</g>';
+  if (opts.route && opts.route.length){
+    var d = path(opts.route);
+    svg += '<path d="' + d + '" fill="none" stroke="#f8f3ea" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>' +
+           '<path d="' + d + '" fill="none" stroke="#8a5a3c" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>';
+  }
+  if (opts.walk && pts.length > 1)
+    svg += '<path d="' + path(pts.map(function(p){ return [p.lat, p.lng]; })) + '" fill="none" stroke="#4f6333" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/>';
+  /* labels: try right, left, above, below; skip one that would overlap */
+  var placed = pts.map(function(p){ var x = X(p.lat, p.lng), y = Y(p.lat); return [x - 13, y - 13, x + 13, y + 13]; });
+  function free(r){ return r[0] > 2 && r[2] < W - 2 && r[1] > 2 && r[3] < H - 2 && placed.every(function(q){ return r[2] < q[0] || r[0] > q[2] || r[3] < q[1] || r[1] > q[3]; }); }
+  var labels = '';
   pts.forEach(function(p){
-    var x = X(p).toFixed(1), y = Y(p).toFixed(1);
-    svg += '<g><circle cx="' + x + '" cy="' + y + '" r="13" fill="#5a6a72" stroke="#f5f0e6" stroke-width="2.5"/>' +
-           '<text x="' + x + '" y="' + y + '" dy=".35em" text-anchor="middle" font-family="Source Sans 3,sans-serif" font-weight="700" font-size="14" fill="#fff">' + p.n + '</text></g>';
+    var x = X(p.lat, p.lng), y = Y(p.lat), t = p.short || p.name, w = t.length * 6.6 + 4, h = 15;
+    var tries = [[x + 17, y - h / 2, 'start'], [x - 17 - w, y - h / 2, 'start'], [x - w / 2, y - 18 - h, 'start'], [x - w / 2, y + 18, 'start']];
+    for (var i = 0; i < tries.length; i++){
+      var r = [tries[i][0], tries[i][1], tries[i][0] + w, tries[i][1] + h];
+      if (free(r)){ placed.push(r); labels += '<text class="lbl" x="' + (r[0] + 2).toFixed(1) + '" y="' + (r[1] + 11.5).toFixed(1) + '" font-family="Source Sans 3,sans-serif" font-size="12.5" font-weight="600" fill="#1e1710">' + t.replace(/</g, '') + '</text>'; break; }
+    }
   });
-  svg += '<g font-family="Source Sans 3,sans-serif" font-size="13" fill="#1e1710">' +
-         '<path d="M18 ' + (H - 18) + 'h' + bar.toFixed(1) + '" stroke="#1e1710" stroke-width="2.5"/>' +
-         '<text x="18" y="' + (H - 26) + '">' + km + ' km</text>' +
-         '<path d="M' + (W - 24) + ' 32l-7 15h14z" fill="#1e1710"/><text x="' + (W - 24) + '" y="26" text-anchor="middle" font-weight="700">N</text></g>';
-  svg += '</svg>';
+  pts.forEach(function(p){
+    var x = X(p.lat, p.lng).toFixed(1), y = Y(p.lat).toFixed(1);
+    svg += '<g class="pin" data-n="' + p.n + '" tabindex="0" role="button" aria-label="' + p.n + ': ' + p.name.replace(/"/g, '') + '"><circle cx="' + x + '" cy="' + y + '" r="12" fill="#5a6a72" stroke="#f8f3ea" stroke-width="2.5"/>' +
+           '<text x="' + x + '" y="' + y + '" dy=".35em" text-anchor="middle" font-family="Source Sans 3,sans-serif" font-weight="700" font-size="12.5" fill="#fff" pointer-events="none">' + p.n + '</text></g>';
+  });
+  svg += labels;
+  svg += '<g font-family="Source Sans 3,sans-serif" font-size="12" fill="#1e1710">' +
+         '<path d="M16 ' + (H - 16) + 'h' + (km * kmPx).toFixed(1) + '" stroke="#1e1710" stroke-width="2.5"/>' +
+         '<text x="16" y="' + (H - 24) + '">' + km + ' km</text>' +
+         '<path d="M' + (W - 22) + ' 30l-6 13h12z" fill="#1e1710"/><text x="' + (W - 22) + '" y="24" text-anchor="middle" font-weight="700">N</text></g>';
+  svg += '</g></svg>';
   box.innerHTML = svg;
 }
 function placeList(list, pts){
+  list.innerHTML = '';
   pts.forEach(function(p){
     var li = el('li'), body = el('div');
+    li.setAttribute('data-n', p.n);
     body.appendChild(el('b', '', filled(p.bugun) ? p.bugun.trim() + ' · ' + p.name.trim() : p.name.trim()));
     if (filled(p.note)) body.appendChild(el('span', '', p.note.trim()));
     var a = el('a', '', 'Open in Google Maps'); a.href = mapsLink(p); a.target = '_blank'; a.rel = 'noopener';
@@ -347,16 +361,51 @@ function placeList(list, pts){
     li.appendChild(el('span', 'n', String(p.n))); li.appendChild(body); list.appendChild(li);
   });
 }
+/* a pin and its line in the list light up together */
+function linkUp(box){
+  function hot(n, on){ $$('[data-n="' + n + '"]', box).forEach(function(e){ e.classList.toggle('hot', on); }); }
+  box.addEventListener('mouseover', function(e){ var t = e.target.closest('[data-n]'); if (t) hot(t.getAttribute('data-n'), true); });
+  box.addEventListener('mouseout', function(e){ var t = e.target.closest('[data-n]'); if (t) hot(t.getAttribute('data-n'), false); });
+  box.addEventListener('click', function(e){
+    var pin = e.target.closest('.pin'); if (!pin) return;
+    var n = pin.getAttribute('data-n');
+    $$('.hot', box).forEach(function(x){ x.classList.remove('hot'); });
+    hot(n, true);
+    var li = $('.places li[data-n="' + n + '"]', box);
+    if (li) li.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+  });
+}
 $$('[data-map]').forEach(function(box){
-  var pts;
-  if (box.getAttribute('data-map') === 'walk'){
+  var kind = box.getAttribute('data-map'), pts, opts;
+  if (kind === 'walk'){
     pts = PLACES.filter(function(p){ return isFinite(p.walk); }).sort(function(a, b){ return a.walk - b.walk; })
                 .map(function(p){ return Object.assign({}, p, {n: p.walk}); });
-  } else pts = PLACES.map(function(p, i){ return Object.assign({}, p, {n: i + 1}); });
+    opts = {walk: true, label: 'The Lichini walk'};
+  } else if (kind === 'road'){
+    pts = PLACES.filter(function(p){ return p.map === 'road' || p.map === 'both'; }).map(function(p, i){ return Object.assign({}, p, {n: i + 1}); });
+    opts = {route: ROAD, fitRoute: true, label: 'The road in'};
+  } else {
+    pts = PLACES.filter(function(p){ return !p.map || p.map === 'valley' || p.map === 'both'; }).map(function(p, i){ return Object.assign({}, p, {n: i + 1}); });
+    opts = {route: ROAD, label: 'Around Bichom'};
+  }
   if (!pts.length) return;
   box.hidden = false;
-  drawMap($('.map', box), pts);
+  drawMap($('.map', box), pts, opts);
   placeList($('.places', box), pts);
+  linkUp(box);
+});
+/* the two maps: tabs */
+$$('.maptabs').forEach(function(bar){
+  var btns = $$('button', bar);
+  function select(b){
+    btns.forEach(function(x){
+      var on = x === b, panel = document.getElementById(x.getAttribute('aria-controls'));
+      x.setAttribute('aria-selected', String(on));
+      if (panel) panel.hidden = !on || !$('.map svg', panel);
+    });
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ select(b); }); });
+  select(btns.filter(function(x){ return x.getAttribute('aria-selected') === 'true'; })[0] || btns[0]);
 });
 
 /* the village in Google Maps, for directions */
@@ -381,6 +430,145 @@ $$('[data-permit-link]').forEach(function(a){
   if (n){ var pn = el('p', '', 'WhatsApp: '), a = el('a', '', n); a.href = 'https://wa.me/' + WA; a.target = '_blank'; a.rel = 'noopener'; pn.appendChild(a); f.insertBefore(pn, ul.nextSibling); }
   if (filled(SITE.credits)){ var gift = $('.gift', f); f.insertBefore(el('p', '', SITE.credits.trim()), gift ? gift.nextSibling : null); }
 })();
+
+/* ── the smooth parts: pictures that crossfade, the bar at the top,
+      the tab bar, the side dots, words that rise into place ── */
+var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+var openParts = PARTS.filter(function(p){ var s = document.getElementById(p.id); return s && !s.hidden; });
+var ICONS = {
+  'Birds':     '<path d="M3 14c3.5 0 5-4 9-4 2.6 0 4.2 1.4 5.2 3l3.3.6-3 1.6c-1 3-3.8 4.8-7.5 4.8-3 0-5.2-1.6-7-6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="15.6" cy="12.6" r="1" fill="currentColor"/>',
+  'Walks':     '<path d="M2.5 19.5l6.2-11 4.3 7 2.3-3.4 6.2 7.4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>',
+  'The river': '<path d="M3 9.5c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>',
+  'Made here': '<path d="M4 10h16l-2.2 9.5H6.2zM8 10l4-6 4 6M7 14h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>',
+  'Visit':     '<path d="M4 11.5l8-7 8 7V20h-5.5v-5.5h-5V20H4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>'
+};
+function partOf(id){ return PARTS.filter(function(p){ return p.id === id; })[0]; }
+var stageLayers = {}, current = null, zTop = 1;
+
+/* the stage */
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  var stage = el('div', 'stage'); stage.setAttribute('aria-hidden', 'true');
+  openParts.forEach(function(p){
+    var img = $('#' + p.id + ' .ch__bg img'); if (!img) return;
+    var layer = new Image(); layer.alt = ''; layer.decoding = 'async';
+    layer.setAttribute('data-src', img.getAttribute('src'));
+    if (img.style.objectPosition) layer.style.objectPosition = img.style.objectPosition;
+    stage.appendChild(layer); stageLayers[p.id] = layer;
+  });
+  if (!Object.keys(stageLayers).length) return;
+  document.body.insertBefore(stage, document.body.firstChild);
+  document.documentElement.classList.add('staged');
+  function load(id){ var l = stageLayers[id]; if (l && !l.src) l.src = l.getAttribute('data-src'); }
+  load(openParts[0].id);
+  var near = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) load(e.target.id); }); }, {rootMargin: '150% 0px'});
+  openParts.forEach(function(p){ near.observe(document.getElementById(p.id)); });
+})();
+function showPart(id){
+  if (id === current) return;
+  var prev = current; current = id;
+  var layer = stageLayers[id];
+  if (layer){
+    if (!layer.src) layer.src = layer.getAttribute('data-src');
+    layer.style.zIndex = ++zTop;
+    layer.classList.add('on');
+    var old = prev && stageLayers[prev];
+    if (old && old !== layer) setTimeout(function(){ if (current !== prev) old.classList.remove('on'); }, reduce ? 300 : 1200);
+  }
+  var part = partOf(id);
+  Object.keys(navItems).forEach(function(g){ navItems[g].classList.toggle('on', !!part && part.group === g); });
+  $$('.tabs a').forEach(function(a){ a.classList.toggle('on', !!part && a.getAttribute('data-group') === part.group); });
+  $$('.dots a').forEach(function(a){ a.classList.toggle('on', a.getAttribute('data-to') === id); });
+}
+if ('IntersectionObserver' in window){
+  var mid = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) showPart(e.target.id); }); }, {rootMargin: '-50% 0px -50% 0px'});
+  openParts.forEach(function(p){ mid.observe(document.getElementById(p.id)); });
+}
+if (openParts.length) showPart(openParts[0].id);
+
+/* the bar at the top: clear over the first picture, paper after; a progress line */
+(function(){
+  var top = $('#top'), head = $('#home .ch__head'); if (!top) return;
+  var line = el('div', 'progress'); top.appendChild(line);
+  if (head && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ top.classList.toggle('over', es[0].isIntersecting && $('#sheet').hidden); }, {rootMargin: '-60px 0px -85% 0px'}).observe(head);
+    $('.menu-btn', top).addEventListener('click', function(){ if (!$('#sheet').hidden) top.classList.remove('over'); });
+  }
+  var ticking = false;
+  function paint(){
+    var h = document.documentElement.scrollHeight - innerHeight;
+    line.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')';
+    ticking = false;
+  }
+  addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(paint); } }, {passive: true});
+  paint();
+})();
+
+/* the tab bar, on phones */
+(function(){
+  var groups = ['Birds', 'Walks', 'The river', 'Made here', 'Visit'];
+  var bar = el('nav', 'tabs'); bar.setAttribute('aria-label', 'Main parts');
+  groups.forEach(function(g){
+    var first = openParts.filter(function(p){ return p.group === g; })[0]; if (!first) return;
+    var a = el('a'); a.href = '#' + first.id; a.setAttribute('data-group', g);
+    a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS[g] + '</svg>';
+    a.appendChild(el('span', '', g === 'The river' ? 'River' : g));
+    bar.appendChild(a);
+  });
+  if (!bar.children.length) return;
+  document.body.appendChild(bar);
+  document.body.classList.add('has-tabs');
+})();
+
+/* the side dots, on wide screens */
+(function(){
+  var list = el('ul', 'dots'); list.setAttribute('aria-label', 'Parts of the page');
+  openParts.forEach(function(p){
+    var li = el('li'), a = el('a'); a.href = '#' + p.id; a.setAttribute('data-to', p.id);
+    a.appendChild(el('span', '', p.label)); li.appendChild(a); list.appendChild(li);
+  });
+  document.body.appendChild(list);
+})();
+
+/* swipe rows: buttons and a counter */
+$$('.swipe').forEach(function(row){
+  var items = row.children.length; if (items < 2) return;
+  var bar = el('div', 'swipe-bar'), count = el('span', '', '1 / ' + items + ' · swipe'), btns = el('div');
+  var prev = el('button', '', '‹'), next = el('button', '', '›');
+  prev.type = next.type = 'button'; prev.setAttribute('aria-label', 'Previous'); next.setAttribute('aria-label', 'Next');
+  btns.appendChild(prev); btns.appendChild(next); bar.appendChild(count); bar.appendChild(btns);
+  row.parentNode.insertBefore(bar, row.nextSibling);
+  function step(){ return row.children[0].getBoundingClientRect().width + 12; }
+  function update(){
+    var i = Math.round(row.scrollLeft / step());
+    count.textContent = (Math.min(items, i + 1)) + ' / ' + items + (i === 0 ? ' · swipe' : '');
+    prev.disabled = row.scrollLeft < 4;
+    next.disabled = row.scrollLeft + row.clientWidth >= row.scrollWidth - 4;
+  }
+  prev.addEventListener('click', function(){ row.scrollBy({left: -step(), behavior: reduce ? 'auto' : 'smooth'}); });
+  next.addEventListener('click', function(){ row.scrollBy({left: step(), behavior: reduce ? 'auto' : 'smooth'}); });
+  row.addEventListener('scroll', function(){ requestAnimationFrame(update); }, {passive: true});
+  update();
+});
+
+/* words rise into place */
+(function(){
+  document.documentElement.classList.add('js');
+  var items = $$('.paper > *:not(.next), .ch__head > *');
+  if (!('IntersectionObserver' in window) || reduce){ return; }
+  /* what is already on screen stays as it is; the rest rises in */
+  items = items.filter(function(e){ return e.getBoundingClientRect().top > innerHeight; });
+  items.forEach(function(e){ e.classList.add('rv'); });
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {rootMargin: '0px 0px -6% 0px', threshold: 0.01});
+  items.forEach(function(e){ io.observe(e); });
+})();
+
+/* works offline once visited, and can be added to the home screen */
+if ('serviceWorker' in navigator && location.protocol === 'https:'){
+  addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });
+}
 
 /* ── the keeper's preview box ── */
 (function keeper(){
