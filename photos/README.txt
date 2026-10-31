@@ -28,8 +28,7 @@ Each part of the page has one big picture behind its words:
                           Wanted: flowers on the trail
   The cave                photos/cave.jpg  (photo by Saajan Graphy: ask Saajan for a yes)
                           Wanted: the cave with a guide in the frame
-  The river               photos/bichom-river.jpg
-                          Wanted: people at the nets, with their yes
+  The river               photos/river-net-cast.jpg  (ask the fisherman for a yes)
   Sunrise and sunset      art/sunrise.svg  (a drawing)
                           Wanted: the evening light on the valley
   Bamboo                  photos/bamboo-basket.jpg  (hands at work)
@@ -44,7 +43,10 @@ Each part of the page has one big picture behind its words:
 
 Inside the words:
 
-  bichom-river-2.jpg      The river
+  river-net-gather.jpg, river-rod-rock.jpg, river-rod-bank.jpg,
+  bichom-river.jpg, bar-headed-geese.jpg
+                          The river: a row you swipe through. Ask each
+                          person shown for a yes.
   bamboo-bag.jpg          Bamboo
   food-bamboo-fire.jpg    Bamboo (cooked in bamboo)
   fibre-*.jpg             Nettle cloth: the steps, from the Revival of
@@ -58,7 +60,7 @@ To swap a drawing for a photo: upload the photo here, then in index.html
 change the drawing's name (e.g. art/liocichla.svg) to the photo's name.
 
 Not used yet (spare): craft-round.jpg (needs its name and a caption),
-homestay-2.jpg, rain-lilies.jpg, bichom-valley.jpg
+homestay-2.jpg, rain-lilies.jpg, bichom-valley.jpg, bichom-river-2.jpg
 
 DISHES
 ------
