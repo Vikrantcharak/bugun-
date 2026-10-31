@@ -29,6 +29,7 @@ The top photo of each page:
   bichom-road.jpg         Our story
                           Wanted: a portrait, with consent
   homestay.jpg            Stay and visit  (the homestay or a shared meal)
+  cave.jpg                The cave  (photo by Saajan Graphy: ask Saajan for a yes)
 
 Inside the pages:
 
@@ -38,7 +39,7 @@ Inside the pages:
   fibre-*.jpg             Nettle cloth: the steps, from the Revival of
                           Memory field record. Replace with the same name.
 
-  small/                  Small square copies for the six tiles on the
+  small/                  Small square copies for the tiles on the
                           home page. If you replace one of those photos,
                           tell Claude, or make a 480 x 480 copy here.
 

@@ -11,5 +11,6 @@ Upload a file with exactly one of these names and a small
   liocichla.mp3   the bird's name    (The bird)
   lichini.mp3     Lichini            (The Lichini walk)
   nettle.mp3      the nettle         (Nettle cloth)
+  cave.mp3        the cave's name    (The cave)
 
 More names (places, dishes) can be added: tell Claude which one.

@@ -41,6 +41,7 @@ window.SITE = {
     sun:     false,   // Sunrise and sunset: open when the two spots are known
     bamboo:  false,   // Bamboo and food: open when the families and dishes are known
     story:   false,   // Our story: wait until the elders have read it
+    cave:    true,    // The cave
   },
 
   // A Hindi version comes after the English is approved and a Hindi
@@ -104,6 +105,18 @@ window.SITE = {
       price:       "",   // e.g. "₹(amount) a person"
       lifejackets: "",   // e.g. "yes, for everyone"
     },
+  },
+
+
+  /* ── THE CAVE (cave.html) ─────────────────────────────────────── */
+  // If the cave is sacred, or its place should stay private, say only
+  // what the community agrees to, and never put it on the map.
+  cave: {
+    name:     "",   // its name, Bugun first, then English
+    where:    "",   // where it is and how far from Bichom, e.g. "(place), about (time) on foot from Bichom"
+    getThere: "",   // on foot or by road, how long, how steep, one or two sentences
+    inside:   "",   // what you see inside, one or two sentences
+    story:    "",   // its story, only if the community wants to share it
   },
 
 

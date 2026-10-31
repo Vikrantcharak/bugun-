@@ -29,6 +29,7 @@ person in Bichom can keep it alive.
 | Bamboo and food | `bamboo-food.html` | The craft, cooking in bamboo, who to ask | Built, waiting |
 | Nettle cloth | `nettle.html` | How the nettle becomes thread | Yes |
 | Our story | `story.html` | Who the Bugun are, in the elders' words | Built, waits for the elders |
+| The cave | `cave.html` | Where the cave is, how to get there, what to bring | Yes |
 | Stay and visit | `visit.html` | When, how to reach us, permits, rules, contact | Yes |
 | Map | `map.html` | Numbered places, with the list underneath | Opens when `places.js` has a place |
 
@@ -102,6 +103,7 @@ Tick these off as the answers arrive. Each one has a place in `settings.js`.
 - [ ] Bamboo families who agree to be named, and what they make → `bamboo`
 - [ ] Three to five dishes with their Bugun names, which are cooked in bamboo, vegetarian options → `bamboo.dishes`
 - [ ] The nettle page: the Bugun name, the makers' words, and what may be public → `nettle`
+- [ ] The cave: its name, where it is, how to get there, what is inside, and what may be public → `cave`
 - [ ] The stay: homestay name, rooms, beds, bathroom, price or "ask" → `homestay`
 - [ ] How to reach: nearest town, the road, the last stretch, where the vehicle stops → `visit.reach`
 - [ ] The WhatsApp number and the name of the person who answers → `whatsapp`, `contactName`

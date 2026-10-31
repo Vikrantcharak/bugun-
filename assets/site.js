@@ -30,6 +30,7 @@ var PAGES = [
   {id:'bamboo',  file:'bamboo-food.html', label:'Bamboo and food'},
   {id:'nettle',  file:'nettle.html',      label:'Nettle cloth'},
   {id:'story',   file:'story.html',       label:'Our story'},
+  {id:'cave',    file:'cave.html',        label:'The cave'},
   {id:'visit',   file:'visit.html',       label:'Stay and visit'},
   {id:'map',     file:'map.html',         label:'Map'}
 ];
