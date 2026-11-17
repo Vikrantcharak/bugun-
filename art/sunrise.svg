@@ -1,33 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Drawing of the sun rising behind layered ridges, with mist in the valleys">
-  <title>First light over the ridges (a drawing)</title>
-  <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#5a6a72"/><stop offset=".35" stop-color="#b98f73"/><stop offset=".6" stop-color="#efc58f"/><stop offset=".75" stop-color="#f7e2b8"/>
-    </linearGradient>
-    <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff2cf" stop-opacity=".95"/><stop offset=".4" stop-color="#ffd28a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd28a" stop-opacity="0"/></radialGradient>
-    <filter id="mist"><feGaussianBlur stdDeviation="16"/></filter>
-  </defs>
-  <rect width="1200" height="900" fill="url(#sky)"/>
-  <circle cx="620" cy="470" r="330" fill="url(#glow)"/>
-  <g stroke="#fff3d6" stroke-width="3" opacity=".25" stroke-linecap="round">
-    <path d="M620 470 L 300 160"/><path d="M620 470 L 470 90"/><path d="M620 470 L 640 60"/><path d="M620 470 L 810 90"/><path d="M620 470 L 960 170"/>
-  </g>
-  <circle cx="620" cy="478" r="62" fill="#fff0c8"/>
-  <circle cx="620" cy="478" r="62" fill="#a83f12" opacity=".12"/>
-  <g fill="#fff" opacity=".5" filter="url(#mist)"><ellipse cx="300" cy="250" rx="160" ry="16"/><ellipse cx="930" cy="210" rx="190" ry="18"/></g>
-  <path d="M0 500 C 120 470, 230 480, 330 452 C 430 424, 520 470, 600 480 C 690 490, 780 440, 880 446 C 990 452, 1090 420, 1200 432 V900 H0Z" fill="#8a8f8c"/>
-  <ellipse cx="600" cy="540" rx="760" ry="44" fill="#f5e6c6" opacity=".7" filter="url(#mist)"/>
-  <path d="M0 590 C 140 556, 260 580, 380 552 C 500 524, 600 580, 720 570 C 860 558, 960 520, 1080 536 C 1140 544, 1180 540, 1200 536 V900 H0Z" fill="#6f7a78"/>
-  <ellipse cx="520" cy="640" rx="820" ry="44" fill="#f5e6c6" opacity=".55" filter="url(#mist)"/>
-  <path d="M0 690 C 180 650, 330 690, 480 660 C 620 632, 720 680, 860 664 C 1000 648, 1100 620, 1200 630 V900 H0Z" fill="#5a6a72"/>
-  <path d="M0 790 C 220 750, 380 790, 560 760 C 760 728, 900 770, 1060 744 C 1120 736, 1170 738, 1200 736 V900 H0Z" fill="#3e4f3a"/>
-  <path d="M0 860 C 260 830, 520 850, 760 826 C 940 810, 1080 824, 1200 816 V900 H0Z" fill="#2c3a29"/>
-  <!-- pines on the near ridge -->
-  <g fill="#2c3a29">
-    <path d="M140 770 l14 -50 l14 50z M170 765 l12 -40 l12 40z M1010 750 l14 -54 l14 54z M1042 748 l11 -38 l11 38z M820 760 l10 -36 l10 36z"/>
-  </g>
-  <!-- birds -->
-  <g stroke="#3e4f3a" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7">
-    <path d="M720 330 q9 -8 18 0 q9 -8 18 0"/><path d="M780 300 q7 -6 14 0 q7 -6 14 0"/><path d="M690 290 q6 -5 12 0 q6 -5 12 0"/>
-  </g>
+<title>First light over the ridges (a drawing)</title>
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6c7c86"/><stop offset=".3" stop-color="#c79a7c"/><stop offset=".55" stop-color="#f1c891"/><stop offset=".72" stop-color="#f8e4bb"/></linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#fff4d3" stop-opacity=".95"/><stop offset=".35" stop-color="#ffd692" stop-opacity=".55"/><stop offset="1" stop-color="#ffd692" stop-opacity="0"/></radialGradient>
+<radialGradient id="mistg"><stop offset="0" stop-color="#f8ecd2" stop-opacity=".85"/><stop offset=".7" stop-color="#f8ecd2" stop-opacity=".3"/><stop offset="1" stop-color="#f8ecd2" stop-opacity="0"/></radialGradient>
+<radialGradient id="cloudg"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+</defs>
+<style>
+.dawn{animation:dawn 28s ease-in-out infinite alternate}
+@keyframes dawn{from{opacity:.42}to{opacity:0}}
+.sun{animation:rise 28s ease-in-out infinite alternate}
+@keyframes rise{from{transform:translateY(78px)}to{transform:translateY(-70px)}}
+.rays{transform-box:fill-box;transform-origin:50% 50%;animation:turn 90s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}
+.halo{transform-box:fill-box;transform-origin:50% 50%;animation:pulse 7s ease-in-out infinite alternate}
+@keyframes pulse{from{transform:scale(.94);opacity:.8}to{transform:scale(1.06);opacity:1}}
+.mist{animation:drift 26s ease-in-out infinite alternate}
+.m2{animation-duration:34s;animation-delay:-8s}.m3{animation-duration:30s;animation-delay:-15s}
+@keyframes drift{from{transform:translateX(-60px)}to{transform:translateX(70px)}}
+.cloud{animation:drift 60s ease-in-out infinite alternate}
+.flock{animation:cross 46s linear infinite}
+@keyframes cross{from{transform:translate(-260px,30px)}to{transform:translate(1320px,-60px)}}
+.wing{transform-box:fill-box;transform-origin:50% 100%;animation:flap .7s ease-in-out infinite alternate}
+.w2{animation-delay:-.25s}.w3{animation-delay:-.5s}
+@keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(.3)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<rect width="1200" height="900" fill="url(#sky)"/>
+<rect class="dawn" width="1200" height="900" fill="#2f3b47" opacity="0"/>
+<g class="cloud"><ellipse cx="290" cy="240" rx="220" ry="26" fill="url(#cloudg)"/><ellipse cx="940" cy="200" rx="260" ry="30" fill="url(#cloudg)"/></g>
+<g class="sun"><circle class="halo" cx="620" cy="470" r="340" fill="url(#glow)"/><g class="rays" stroke="#fff3d6" stroke-width="3" opacity=".22" stroke-linecap="round"><path d="M620 470 L1040 470"/><path d="M620 470 L984 680"/><path d="M620 470 L830 834"/><path d="M620 470 L620 890"/><path d="M620 470 L410 834"/><path d="M620 470 L256 680"/><path d="M620 470 L200 470"/><path d="M620 470 L256 260"/><path d="M620 470 L410 106"/><path d="M620 470 L620 50"/><path d="M620 470 L830 106"/><path d="M620 470 L984 260"/></g><circle cx="620" cy="470" r="64" fill="#fff0c8"/><circle cx="620" cy="470" r="64" fill="#e9a23b" opacity=".16"/></g>
+<g class="flock" stroke="#3e4f3a" stroke-width="3.2" fill="none" stroke-linecap="round" opacity=".75"><path class="wing" d="M0 300 q10 -10 20 0 q10 -10 20 0"/><path class="wing w2" d="M70 270 q8 -8 16 0 q8 -8 16 0"/><path class="wing w3" d="M-50 262 q7 -7 14 0 q7 -7 14 0"/></g>
+<path d="M0 500 C 120 470, 230 480, 330 452 C 430 424, 520 470, 600 480 C 690 490, 780 440, 880 446 C 990 452, 1090 420, 1200 432 V900 H0Z" fill="#8c918c"/>
+<ellipse class="mist" cx="600" cy="548" rx="820" ry="62" fill="url(#mistg)"/>
+<path d="M0 590 C 140 556, 260 580, 380 552 C 500 524, 600 580, 720 570 C 860 558, 960 520, 1080 536 C 1140 544, 1180 540, 1200 536 V900 H0Z" fill="#707b78"/>
+<ellipse class="mist m2" cx="520" cy="648" rx="880" ry="60" fill="url(#mistg)" opacity=".85"/>
+<path d="M0 690 C 180 650, 330 690, 480 660 C 620 632, 720 680, 860 664 C 1000 648, 1100 620, 1200 630 V900 H0Z" fill="#5a6a72"/>
+<ellipse class="mist m3" cx="700" cy="752" rx="820" ry="46" fill="url(#mistg)" opacity=".6"/>
+<path d="M0 790 C 220 750, 380 790, 560 760 C 760 728, 900 770, 1060 744 C 1120 736, 1170 738, 1200 736 V900 H0Z" fill="#3e4f3a"/>
+<g fill="#33432f"><path d="M140 772 l14 -52 l14 52z M172 767 l12 -40 l12 40z M1010 752 l14 -56 l14 56z M1044 750 l11 -38 l11 38z M820 762 l10 -36 l10 36z M470 770 l9 -30 l9 30z"/></g>
+<path d="M0 860 C 260 830, 520 850, 760 826 C 940 810, 1080 824, 1200 816 V900 H0Z" fill="#2a3827"/>
 </svg>

@@ -1,162 +1,176 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Drawing of red rhododendron flowers on a branch, misty hills behind">
 <title>Rhododendron in flower (a drawing)</title>
 <defs>
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe6e2"/><stop offset=".6" stop-color="#eef0e6"/><stop offset="1" stop-color="#f5f0e6"/></linearGradient>
-<radialGradient id="pet" cx=".5" cy=".85" r=".9"><stop offset="0" stop-color="#7d1410"/><stop offset=".55" stop-color="#b8231b"/><stop offset="1" stop-color="#d9412f"/></radialGradient>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9e2de"/><stop offset=".6" stop-color="#ecefe5"/><stop offset="1" stop-color="#f5f0e6"/></linearGradient>
+<radialGradient id="pet" cx=".5" cy=".85" r=".9"><stop offset="0" stop-color="#7d1410"/><stop offset=".55" stop-color="#b8231b"/><stop offset="1" stop-color="#dc4532"/></radialGradient>
+<radialGradient id="mistg"><stop offset="0" stop-color="#f3f3ea" stop-opacity=".9"/><stop offset=".7" stop-color="#f3f3ea" stop-opacity=".3"/><stop offset="1" stop-color="#f3f3ea" stop-opacity="0"/></radialGradient>
 <symbol id="fl" viewBox="-30 -60 60 64" overflow="visible">
   <path d="M0 0 C -14 -6, -22 -26, -24 -44 C -18 -40, -14 -46, -10 -52 C -6 -46, -3 -50, 0 -56 C 3 -50, 6 -46, 10 -52 C 14 -46, 18 -40, 24 -44 C 22 -26, 14 -6, 0 0 Z" fill="url(#pet)"/>
   <path d="M0 -4 C -6 -18, -8 -32, -10 -44 M0 -4 C 0 -20, 0 -34, 0 -50 M0 -4 C 6 -18, 8 -32, 10 -44" stroke="#6e0f0c" stroke-width="1.4" fill="none" opacity=".5"/>
-  <g fill="#3a0806"><circle cx="-5" cy="-40" r="1.6"/><circle cx="2" cy="-44" r="1.4"/><circle cx="7" cy="-38" r="1.5"/><circle cx="-1" cy="-34" r="1.3"/></g>
+  <g fill="#3a0806"><circle cx="-5" cy="-40" r="1.6"/><circle cx="2" cy="-44" r="1.4"/><circle cx="7" cy="-38" r="1.5"/></g>
 </symbol>
 <symbol id="lf" viewBox="0 -14 120 28" overflow="visible">
   <path d="M0 0 C 30 -16, 80 -14, 120 0 C 80 14, 30 16, 0 0 Z" fill="#3f5a2e"/>
   <path d="M0 0 C 30 -16, 80 -14, 120 0" fill="#4f6b38" opacity=".7"/>
   <path d="M2 0 H 116" stroke="#a7b77e" stroke-width="1.6" opacity=".7"/>
 </symbol>
-<filter id="mist"><feGaussianBlur stdDeviation="14"/></filter>
+<path id="pt" d="M0 0 C -10 -8, -12 -24, 0 -34 C 12 -24, 10 -8, 0 0 Z"/>
 </defs>
+<style>
+.mist{animation:drift 30s ease-in-out infinite alternate}.m2{animation-duration:38s;animation-delay:-12s}
+@keyframes drift{from{transform:translateX(-70px)}to{transform:translateX(80px)}}
+.tree{transform-box:fill-box;transform-origin:50% 100%;animation:lean 9s ease-in-out infinite alternate}
+@keyframes lean{from{transform:rotate(-.5deg)}to{transform:rotate(.6deg)}}
+.truss{transform-box:fill-box;transform-origin:50% 70%;animation:nod 6s ease-in-out infinite alternate}
+.t2{animation-duration:7.4s;animation-delay:-2s}.t3{animation-duration:5.4s;animation-delay:-3s}.t4{animation-duration:6.6s;animation-delay:-1s}.t5{animation-duration:8s;animation-delay:-4s}
+@keyframes nod{from{transform:rotate(-1.6deg)}to{transform:rotate(1.8deg)}}
+.petal{opacity:0;transform-box:fill-box;transform-origin:50% 50%;animation:fall 11s linear infinite}
+.p2{animation-duration:14s;animation-delay:-4s}.p3{animation-duration:12s;animation-delay:-8s}.p4{animation-duration:16s;animation-delay:-2s}
+.p5{animation-duration:13s;animation-delay:-10s}.p6{animation-duration:15s;animation-delay:-6s}
+@keyframes fall{0%{opacity:0;transform:translate(0,0) rotate(0)}8%{opacity:.95}35%{transform:translate(34px,170px) rotate(120deg)}70%{transform:translate(-22px,360px) rotate(250deg)}92%{opacity:.9}100%{opacity:0;transform:translate(18px,520px) rotate(380deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
 <rect width="1200" height="900" fill="url(#sky)"/>
 <path d="M0 560 C 160 500, 300 530, 440 480 S 760 470, 900 430 S 1120 450, 1200 420 V900 H0Z" fill="#b9c6c3"/>
-<ellipse cx="600" cy="560" rx="800" ry="60" fill="#eef0e6" opacity=".7" filter="url(#mist)"/>
+<ellipse class="mist" cx="600" cy="566" rx="860" ry="78" fill="url(#mistg)"/>
 <path d="M0 660 C 200 610, 380 650, 560 600 S 900 590, 1060 560 S 1180 570, 1200 560 V900 H0Z" fill="#8fa29e"/>
-<ellipse cx="500" cy="680" rx="900" ry="50" fill="#eef0e6" opacity=".55" filter="url(#mist)"/>
+<ellipse class="mist m2" cx="500" cy="690" rx="940" ry="66" fill="url(#mistg)" opacity=".8"/>
 <path d="M0 770 C 240 730, 420 760, 640 720 S 1000 700, 1200 690 V900 H0Z" fill="#6c817d"/>
+<g class="tree">
 <g stroke="#4a3624" stroke-linecap="round" fill="none"><path d="M600 900 C 600 780, 590 690, 560 600 C 540 540, 500 470, 440 400" stroke-width="22"/><path d="M585 690 C 640 620, 700 560, 780 500" stroke-width="15"/><path d="M560 600 C 520 560, 470 540, 400 540" stroke-width="10"/><path d="M610 820 C 680 780, 760 760, 860 760" stroke-width="12"/><path d="M590 760 C 520 730, 440 720, 340 740" stroke-width="10"/></g>
-<use href="#lf" width="120" height="28" transform="translate(440 407.9) rotate(-112.81867576266941) scale(1.4534540548957446)"/>
-<use href="#lf" width="120" height="28" transform="translate(440 407.9) rotate(-80.08504843136234) scale(1.423069061083673)"/>
-<use href="#lf" width="120" height="28" transform="translate(440 407.9) rotate(-54.42588793109297) scale(1.5367044553036269)"/>
-<use href="#lf" width="120" height="28" transform="translate(440 407.9) rotate(-34.57201720360469) scale(1.5916313466109002)"/>
-<use href="#lf" width="120" height="28" transform="translate(440 407.9) rotate(-7.400069464928237) scale(1.5630377024191746)"/>
-<use href="#lf" width="120" height="28" transform="translate(440 407.9) rotate(20.61768677719391) scale(1.4301512926707478)"/>
-<use href="#lf" width="120" height="28" transform="translate(440 407.9) rotate(53.79230702628023) scale(1.7154051983104148)"/>
-<use href="#lf" width="120" height="28" transform="translate(440 407.9) rotate(76.48083137839433) scale(1.4815050987852183)"/>
-<use href="#lf" width="120" height="28" transform="translate(440 407.9) rotate(112.03893155848942) scale(1.7622372152020895)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(440.7 347.8) rotate(0.9) scale(1.56)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(462.2 353.1) rotate(33.4) scale(1.48)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(474.8 363.7) rotate(59.7) scale(1.54)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(479.5 373.7) rotate(78.8) scale(1.50)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(478.2 390.2) rotate(108.5) scale(1.66)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(468.7 402.6) rotate(134.6) scale(1.61)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(448.5 411.5) rotate(167.8) scale(1.56)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(430.0 411.2) rotate(194.4) scale(1.49)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(416.2 406.0) rotate(216.3) scale(1.52)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(401.8 390.3) rotate(251.4) scale(1.57)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(399.8 377.4) rotate(274.7) scale(1.61)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(406.6 361.9) rotate(304.1) scale(1.54)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(423.5 350.6) rotate(335.8) scale(1.64)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(445.4 368.8) rotate(25.9) scale(1.47)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(452.4 380.3) rotate(91.2) scale(1.47)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(446.1 390.8) rotate(150.4) scale(1.47)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(432.7 390.0) rotate(216.0) scale(1.47)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(427.6 379.2) rotate(273.7) scale(1.47)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(433.2 369.6) rotate(326.6) scale(1.47)"/>
-<use href="#lf" width="120" height="28" transform="translate(790 494.3) rotate(-102.31720244011868) scale(1.2548472001610498)"/>
-<use href="#lf" width="120" height="28" transform="translate(790 494.3) rotate(-83.81003485143637) scale(1.4705350637282717)"/>
-<use href="#lf" width="120" height="28" transform="translate(790 494.3) rotate(-60.56824744543192) scale(1.3800250464105843)"/>
-<use href="#lf" width="120" height="28" transform="translate(790 494.3) rotate(-34.872683887240996) scale(1.4405228515803585)"/>
-<use href="#lf" width="120" height="28" transform="translate(790 494.3) rotate(4.233133859405015) scale(1.408396254843617)"/>
-<use href="#lf" width="120" height="28" transform="translate(790 494.3) rotate(33.507644989294214) scale(1.3208897855862327)"/>
-<use href="#lf" width="120" height="28" transform="translate(790 494.3) rotate(58.12472586037855) scale(1.4155998335229436)"/>
-<use href="#lf" width="120" height="28" transform="translate(790 494.3) rotate(83.77832326851987) scale(1.368969299314227)"/>
-<use href="#lf" width="120" height="28" transform="translate(790 494.3) rotate(115.43948448820066) scale(1.533829869598929)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(789.8 441.9) rotate(-0.3) scale(1.42)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(803.4 444.0) rotate(22.4) scale(1.42)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(819.5 454.8) rotate(57.2) scale(1.48)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(825.0 468.5) rotate(86.9) scale(1.34)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(823.1 479.3) rotate(109.4) scale(1.42)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(815.8 489.1) rotate(132.7) scale(1.38)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(800.7 496.7) rotate(162.2) scale(1.31)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(784.8 497.8) rotate(188.6) scale(1.44)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(768.8 492.4) rotate(217.1) scale(1.33)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(757.5 480.6) rotate(247.9) scale(1.46)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(754.9 469.1) rotate(271.9) scale(1.37)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(761.3 453.8) rotate(305.2) scale(1.46)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(775.8 444.3) rotate(336.1) scale(1.46)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(794.8 460.3) rotate(26.5) scale(1.28)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(800.8 469.7) rotate(88.6) scale(1.28)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(795.8 479.1) rotate(147.7) scale(1.28)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(783.6 478.7) rotate(216.1) scale(1.28)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(779.3 468.6) rotate(277.3) scale(1.28)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(783.7 461.2) rotate(324.4) scale(1.28)"/>
-<use href="#lf" width="120" height="28" transform="translate(395 548.9) rotate(-115.18051634415409) scale(1.0058886775401281)"/>
-<use href="#lf" width="120" height="28" transform="translate(395 548.9) rotate(-86.76662266110623) scale(1.072302716714606)"/>
-<use href="#lf" width="120" height="28" transform="translate(395 548.9) rotate(-53.57402394028392) scale(1.0139709875658662)"/>
-<use href="#lf" width="120" height="28" transform="translate(395 548.9) rotate(-35.43450234583898) scale(1.0549734565453985)"/>
-<use href="#lf" width="120" height="28" transform="translate(395 548.9) rotate(-2.0919428336843993) scale(1.093664571222928)"/>
-<use href="#lf" width="120" height="28" transform="translate(395 548.9) rotate(34.749566808401525) scale(1.1262545849981942)"/>
-<use href="#lf" width="120" height="28" transform="translate(395 548.9) rotate(55.24786292913245) scale(1.107118096719896)"/>
-<use href="#lf" width="120" height="28" transform="translate(395 548.9) rotate(85.31920131919202) scale(0.959173134471245)"/>
-<use href="#lf" width="120" height="28" transform="translate(395 548.9) rotate(116.39252816092724) scale(1.149741991310344)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(397.1 508.2) rotate(4.5) scale(1.12)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(409.2 511.4) rotate(31.4) scale(1.06)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(418.8 519.3) rotate(60.7) scale(1.10)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(422.3 531.1) rotate(92.9) scale(1.01)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(416.7 543.3) rotate(127.4) scale(1.02)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(403.6 550.7) rotate(161.7) scale(1.01)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(390.1 551.5) rotate(190.4) scale(1.02)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(375.9 545.6) rotate(224.3) scale(1.05)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(368.5 535.2) rotate(256.1) scale(1.14)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(370.4 520.5) rotate(295.9) scale(1.02)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(379.1 512.3) rotate(324.3) scale(1.05)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(398.9 522.6) rotate(27.8) scale(1.00)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(403.4 529.1) rotate(84.0) scale(1.00)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(398.5 537.6) rotate(155.6) scale(1.00)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(389.8 536.6) rotate(217.9) scale(1.00)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(386.6 530.1) rotate(269.5) scale(1.00)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(390.8 522.7) rotate(329.7) scale(1.00)"/>
-<use href="#lf" width="120" height="28" transform="translate(870 764.8) rotate(-116.62584541510134) scale(1.0181015946057463)"/>
-<use href="#lf" width="120" height="28" transform="translate(870 764.8) rotate(-85.01782658811197) scale(1.0628081452222247)"/>
-<use href="#lf" width="120" height="28" transform="translate(870 764.8) rotate(-49.738313950055044) scale(1.0343956178947689)"/>
-<use href="#lf" width="120" height="28" transform="translate(870 764.8) rotate(-35.13046846327603) scale(1.251521032540543)"/>
-<use href="#lf" width="120" height="28" transform="translate(870 764.8) rotate(0.45211832067400337) scale(1.03031569819725)"/>
-<use href="#lf" width="120" height="28" transform="translate(870 764.8) rotate(28.190758814113828) scale(0.9974366851410964)"/>
-<use href="#lf" width="120" height="28" transform="translate(870 764.8) rotate(55.449751055012904) scale(1.2590878417477174)"/>
-<use href="#lf" width="120" height="28" transform="translate(870 764.8) rotate(88.3132004846347) scale(1.1814541161246455)"/>
-<use href="#lf" width="120" height="28" transform="translate(870 764.8) rotate(106.17784315566979) scale(1.0908424427343242)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(868.0 722.2) rotate(-4.0) scale(1.17)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(885.6 725.8) rotate(33.1) scale(1.17)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(895.6 734.8) rotate(63.4) scale(1.08)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(898.0 749.7) rotate(101.9) scale(1.21)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(890.2 761.2) rotate(135.1) scale(1.18)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(876.2 767.3) rotate(167.5) scale(1.17)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(863.5 767.3) rotate(193.1) scale(1.13)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(849.0 760.5) rotate(227.4) scale(1.05)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(842.2 750.5) rotate(256.2) scale(1.09)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(843.4 736.6) rotate(291.7) scale(1.16)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(856.9 724.7) rotate(332.8) scale(1.12)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(875.3 738.0) rotate(37.0) scale(1.04)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(878.7 746.2) rotate(97.8) scale(1.04)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(873.4 753.1) rotate(157.3) scale(1.04)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(865.9 752.8) rotate(207.8) scale(1.04)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(861.2 745.7) rotate(265.5) scale(1.04)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(865.0 737.7) rotate(325.6) scale(1.04)"/>
-<use href="#lf" width="120" height="28" transform="translate(330 753.0) rotate(-114.85270138529091) scale(0.9510933408190557)"/>
-<use href="#lf" width="120" height="28" transform="translate(330 753.0) rotate(-80.5149376409949) scale(1.1250770844710285)"/>
-<use href="#lf" width="120" height="28" transform="translate(330 753.0) rotate(-49.55303156353136) scale(1.0198683565653845)"/>
-<use href="#lf" width="120" height="28" transform="translate(330 753.0) rotate(-25.052351314543856) scale(1.099910936212415)"/>
-<use href="#lf" width="120" height="28" transform="translate(330 753.0) rotate(-6.643544216793913) scale(1.0651464125512236)"/>
-<use href="#lf" width="120" height="28" transform="translate(330 753.0) rotate(34.05643420082757) scale(1.0955757210245225)"/>
-<use href="#lf" width="120" height="28" transform="translate(330 753.0) rotate(59.00224735728733) scale(1.0195081861485)"/>
-<use href="#lf" width="120" height="28" transform="translate(330 753.0) rotate(77.35634749340117) scale(1.097283857755069)"/>
-<use href="#lf" width="120" height="28" transform="translate(330 753.0) rotate(107.32027519783375) scale(1.1002058922241726)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(332.6 714.3) rotate(5.7) scale(1.01)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(343.6 717.3) rotate(31.5) scale(1.09)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(354.1 727.3) rotate(68.2) scale(0.98)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(355.9 736.3) rotate(93.7) scale(0.97)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(348.1 749.9) rotate(135.8) scale(1.07)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(339.2 754.5) rotate(159.4) scale(1.07)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(320.2 754.3) rotate(202.1) scale(1.05)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(310.9 749.1) rotate(227.3) scale(1.03)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(304.6 739.5) rotate(257.4) scale(0.95)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(307.5 724.5) rotate(300.2) scale(1.05)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(316.1 717.4) rotate(327.6) scale(1.09)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(333.9 728.0) rotate(28.9) scale(0.95)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(338.0 735.8) rotate(95.9) scale(0.95)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(333.4 742.3) rotate(155.2) scale(0.95)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(326.6 742.2) rotate(205.4) scale(0.95)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(322.0 735.6) rotate(266.0) scale(0.95)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(325.6 728.3) rotate(326.7) scale(0.95)"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(250 850) rotate(20) scale(.6)" opacity=".85"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(980 860) rotate(-30) scale(.6)" opacity=".85"/>
-<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(700 880) rotate(60) scale(.6)" opacity=".85"/>
+<g class="truss t1">
+<use href="#lf" width="120" height="28" transform="translate(440 408) rotate(-112.8) scale(1.45)"/>
+<use href="#lf" width="120" height="28" transform="translate(440 408) rotate(-76.2) scale(1.42)"/>
+<use href="#lf" width="120" height="28" transform="translate(440 408) rotate(-46.6) scale(1.54)"/>
+<use href="#lf" width="120" height="28" transform="translate(440 408) rotate(-22.8) scale(1.59)"/>
+<use href="#lf" width="120" height="28" transform="translate(440 408) rotate(8.3) scale(1.56)"/>
+<use href="#lf" width="120" height="28" transform="translate(440 408) rotate(40.3) scale(1.43)"/>
+<use href="#lf" width="120" height="28" transform="translate(440 408) rotate(77.4) scale(1.72)"/>
+<use href="#lf" width="120" height="28" transform="translate(440 408) rotate(104.0) scale(1.48)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(441.1 347.8) rotate(1.5) scale(1.69)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(460.7 352.3) rotate(30.9) scale(1.56)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(476.7 366.7) rotate(65.7) scale(1.48)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(480.2 382.4) rotate(94.3) scale(1.54)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(476.3 394.0) rotate(115.7) scale(1.50)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(461.5 407.3) rotate(147.7) scale(1.66)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(442.7 412.2) rotate(176.2) scale(1.61)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(418.8 407.4) rotate(211.7) scale(1.56)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(404.9 395.8) rotate(240.6) scale(1.49)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(399.9 383.0) rotate(264.7) scale(1.52)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(405.9 362.8) rotate(302.2) scale(1.57)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(418.5 352.7) rotate(327.8) scale(1.61)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(446.1 369.2) rotate(29.3) scale(1.47)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(452.3 381.9) rotate(98.8) scale(1.47)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(440.3 392.4) rotate(178.7) scale(1.47)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(428.4 384.4) rotate(249.2) scale(1.47)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(431.1 371.4) rotate(313.9) scale(1.47)"/>
+</g>
+<g class="truss t2">
+<use href="#lf" width="120" height="28" transform="translate(790 494) rotate(-108.8) scale(1.39)"/>
+<use href="#lf" width="120" height="28" transform="translate(790 494) rotate(-72.6) scale(1.46)"/>
+<use href="#lf" width="120" height="28" transform="translate(790 494) rotate(-50.5) scale(1.55)"/>
+<use href="#lf" width="120" height="28" transform="translate(790 494) rotate(-21.8) scale(1.36)"/>
+<use href="#lf" width="120" height="28" transform="translate(790 494) rotate(19.8) scale(1.27)"/>
+<use href="#lf" width="120" height="28" transform="translate(790 494) rotate(47.0) scale(1.23)"/>
+<use href="#lf" width="120" height="28" transform="translate(790 494) rotate(81.3) scale(1.47)"/>
+<use href="#lf" width="120" height="28" transform="translate(790 494) rotate(111.2) scale(1.51)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(788.6 441.9) rotate(-2.2) scale(1.42)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(808.1 446.0) rotate(31.1) scale(1.40)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(820.2 455.7) rotate(59.5) scale(1.45)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(824.9 472.6) rotate(95.3) scale(1.38)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(819.8 484.9) rotate(122.0) scale(1.29)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(806.3 494.9) rotate(152.4) scale(1.41)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(786.4 497.9) rotate(185.9) scale(1.45)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(773.8 494.9) rotate(207.4) scale(1.36)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(759.0 483.2) rotate(242.0) scale(1.29)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(754.9 470.2) rotate(269.5) scale(1.32)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(758.3 458.0) rotate(295.4) scale(1.29)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(774.2 444.9) rotate(333.2) scale(1.31)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(794.7 460.3) rotate(26.0) scale(1.28)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(800.6 471.9) rotate(100.3) scale(1.28)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(790.0 480.8) rotate(179.9) scale(1.28)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(780.7 475.5) rotate(239.3) scale(1.28)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(782.7 462.1) rotate(317.2) scale(1.28)"/>
+</g>
+<g class="truss t3">
+<use href="#lf" width="120" height="28" transform="translate(395 549) rotate(-109.2) scale(1.18)"/>
+<use href="#lf" width="120" height="28" transform="translate(395 549) rotate(-73.5) scale(1.17)"/>
+<use href="#lf" width="120" height="28" transform="translate(395 549) rotate(-50.7) scale(1.05)"/>
+<use href="#lf" width="120" height="28" transform="translate(395 549) rotate(-18.0) scale(1.18)"/>
+<use href="#lf" width="120" height="28" transform="translate(395 549) rotate(23.0) scale(0.98)"/>
+<use href="#lf" width="120" height="28" transform="translate(395 549) rotate(42.0) scale(1.01)"/>
+<use href="#lf" width="120" height="28" transform="translate(395 549) rotate(74.3) scale(1.07)"/>
+<use href="#lf" width="120" height="28" transform="translate(395 549) rotate(111.4) scale(1.01)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(392.2 508.3) rotate(-6.0) scale(1.06)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(410.4 512.0) rotate(34.4) scale(1.09)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(421.6 525.2) rotate(77.4) scale(1.11)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(420.9 536.8) rotate(108.2) scale(1.09)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(410.2 548.1) rotate(146.1) scale(1.01)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(392.7 551.8) rotate(184.8) scale(1.12)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(377.3 546.6) rotate(220.5) scale(1.12)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(369.2 537.2) rotate(250.7) scale(1.06)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(368.4 525.0) rotate(283.2) scale(1.10)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(377.0 513.6) rotate(318.7) scale(1.01)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(398.6 522.4) rotate(25.3) scale(1.00)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(403.3 531.0) rotate(96.6) scale(1.00)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(396.3 538.3) rotate(171.4) scale(1.00)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(387.8 534.3) rotate(238.8) scale(1.00)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(388.6 524.6) rotate(310.0) scale(1.00)"/>
+</g>
+<g class="truss t4">
+<use href="#lf" width="120" height="28" transform="translate(870 765) rotate(-115.6) scale(1.02)"/>
+<use href="#lf" width="120" height="28" transform="translate(870 765) rotate(-80.8) scale(1.00)"/>
+<use href="#lf" width="120" height="28" transform="translate(870 765) rotate(-41.2) scale(1.16)"/>
+<use href="#lf" width="120" height="28" transform="translate(870 765) rotate(-21.3) scale(1.06)"/>
+<use href="#lf" width="120" height="28" transform="translate(870 765) rotate(13.3) scale(1.09)"/>
+<use href="#lf" width="120" height="28" transform="translate(870 765) rotate(41.1) scale(1.22)"/>
+<use href="#lf" width="120" height="28" transform="translate(870 765) rotate(86.5) scale(1.12)"/>
+<use href="#lf" width="120" height="28" transform="translate(870 765) rotate(109.7) scale(1.01)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(867.6 722.2) rotate(-4.8) scale(1.10)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(885.7 725.8) rotate(33.2) scale(1.18)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(896.5 736.4) rotate(67.9) scale(1.05)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(896.2 754.1) rotate(113.4) scale(1.13)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(888.5 762.5) rotate(139.8) scale(1.13)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(872.8 767.8) rotate(174.3) scale(1.13)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(851.0 762.1) rotate(221.7) scale(1.19)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(842.5 751.2) rotate(254.4) scale(1.09)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(842.6 738.5) rotate(286.4) scale(1.07)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(854.5 725.8) rotate(327.3) scale(1.13)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(875.0 737.7) rotate(34.5) scale(1.04)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(878.7 746.4) rotate(99.3) scale(1.04)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(871.6 753.7) rotate(169.6) scale(1.04)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(861.7 747.9) rotate(251.0) scale(1.04)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(865.0 737.7) rotate(325.8) scale(1.04)"/>
+</g>
+<g class="truss t5">
+<use href="#lf" width="120" height="28" transform="translate(330 753) rotate(-104.4) scale(1.10)"/>
+<use href="#lf" width="120" height="28" transform="translate(330 753) rotate(-73.5) scale(1.08)"/>
+<use href="#lf" width="120" height="28" transform="translate(330 753) rotate(-51.5) scale(1.03)"/>
+<use href="#lf" width="120" height="28" transform="translate(330 753) rotate(-18.0) scale(0.91)"/>
+<use href="#lf" width="120" height="28" transform="translate(330 753) rotate(8.2) scale(0.97)"/>
+<use href="#lf" width="120" height="28" transform="translate(330 753) rotate(43.3) scale(1.07)"/>
+<use href="#lf" width="120" height="28" transform="translate(330 753) rotate(85.9) scale(1.01)"/>
+<use href="#lf" width="120" height="28" transform="translate(330 753) rotate(117.0) scale(1.15)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(332.5 714.3) rotate(5.5) scale(1.00)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(344.0 717.5) rotate(32.6) scale(0.98)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(354.2 727.3) rotate(68.4) scale(0.98)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(354.5 741.9) rotate(109.5) scale(1.09)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(343.7 752.7) rotate(148.1) scale(1.02)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(329.2 755.8) rotate(181.8) scale(1.07)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(316.6 752.8) rotate(211.0) scale(1.05)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(304.7 739.7) rotate(256.9) scale(1.07)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(305.7 727.5) rotate(291.0) scale(1.02)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(313.3 719.0) rotate(320.1) scale(1.07)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(333.7 727.9) rotate(27.3) scale(0.95)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(337.7 737.3) rotate(106.8) scale(0.95)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(329.8 743.0) rotate(181.5) scale(0.95)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(322.8 738.5) rotate(244.3) scale(0.95)"/>
+<use href="#fl" x="-30" y="-60" width="60" height="64" transform="translate(324.5 729.2) rotate(316.4) scale(0.95)"/>
+</g>
+</g>
+<g class="petal p1"><use href="#pt" transform="translate(470 420) rotate(10)" fill="#c92a20"/></g>
+<g class="petal p2"><use href="#pt" transform="translate(820 500) rotate(-20)" fill="#b8231b"/></g>
+<g class="petal p3"><use href="#pt" transform="translate(410 560) rotate(35)" fill="#d9412f"/></g>
+<g class="petal p4"><use href="#pt" transform="translate(760 450) rotate(0)" fill="#c92a20"/></g>
+<g class="petal p5"><use href="#pt" transform="translate(900 770) rotate(15)" fill="#b8231b"/></g>
+<g class="petal p6"><use href="#pt" transform="translate(350 760) rotate(-30)" fill="#d9412f"/></g>
 </svg>

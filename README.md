@@ -13,7 +13,7 @@ person in Bichom can keep it alive.
 | `index.html` | The whole site: one long page, and the words of every part | Only to change words |
 | `places.js` | Places on the two maps (from the field KML), and the road in | When you add map points |
 | `photos/` | The photos. Names are in `photos/README.txt` | **Yes** |
-| `art/` | Drawings used until real photos exist (the bird, rhododendrons, fruit, sunrise) | Replace with photos later |
+| `art/` | Moving drawings used until real photos exist (the bird, rhododendrons, fruit, sunrise) | Replace with photos later |
 | `audio/` | "Say the name" recordings. See `audio/README.txt` | Optional |
 | `videos/` | Short clips of the river and the nets. See `videos/README.txt` | Optional |
 | `assets/`, `fonts/`, `404.html`, `sw.js`, `manifest.webmanifest` | The look, the script, old page addresses, the phone app | No |
@@ -43,6 +43,15 @@ like an app, and once opened it still works on a weak or missing signal.
 | 12 | Our story | More | Who the Bugun are, in the elders' words |
 | 13 | Stay and visit | Visit | When, how to reach us, permits, rules, contact |
 | 14 | Map | More | Two maps: around Bichom, and the road in from Tenga |
+
+**What moves.** The drawings are alive: the bird blinks and tilts its head,
+petals fall from the rhododendron, the sun climbs over the ridges, light passes
+over the fruit. Titles arrive line by line with a pen stroke under them; a small
+ink sketch draws itself at the top of each part; the map draws its road and
+drops its pins; the sunrise table grows a bar of daylight for each month; and
+"Stay and visit" has a strip of the year, month by month (add rows such as the
+fruit months under `seasons` in `settings.js`). All of it is light enough for a
+weak signal, and a phone set to "reduce motion" gets the still version.
 
 All thirteen parts are open. To hold one back, change it to `false` under
 `pages` in `settings.js`. The plan suggests holding the cave until someone has

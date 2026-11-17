@@ -208,6 +208,13 @@ window.SITE = {
     reach:       "",   // nearest town, the road, how long the last stretch takes, where the vehicle stops
   },
 
+  // Extra rows for the year strip in "Stay and visit" (the fruit months, the
+  // fishing season …). months: 1 = January … 12 = December.
+  // tone: "gold", "moss", "red", "rust" or "river".
+  seasons: [
+    // { label: "Oranges", months: [11, 12, 1], tone: "gold" },
+  ],
+
   homestay: {
     name:     "",
     rooms:    "",
